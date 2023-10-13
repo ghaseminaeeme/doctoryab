@@ -1,0 +1,35 @@
+﻿using DalWebSite;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using website;
+
+namespace DoctorYab.Ar
+{
+    public partial class About : System.Web.UI.Page
+    {
+        ClassControl cc = new ClassControl();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            TblPage _TblPage = new TblPage(5);
+            HtmlMeta metaKey = new HtmlMeta();
+            metaKey.Name = "keywords";
+            metaKey.Content = _TblPage.PKeyword;
+            Page.Header.Controls.Add(metaKey);
+
+            HtmlHead head = Page.Header;
+            HtmlTitle title = new HtmlTitle();
+            title.Text = _TblPage.PTitle;
+            head.Controls.Add(title);
+
+            HtmlMeta metaKey2 = new HtmlMeta();
+            metaKey2.Name = "description";
+            metaKey2.Content = _TblPage.PDes;
+            Page.Header.Controls.Add(metaKey2);
+        }
+    }
+}
