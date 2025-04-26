@@ -46,7 +46,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <form>
+        <div>
 
             <!-- LOADER -->
             <%-- <div class="preloader">
@@ -66,11 +66,11 @@
                                 <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                                     <div class="lng_dropdown mr-2">
                                         <asp:DropDownList ID="DrdLng" runat="server" class="custome_select" AutoPostBack="true" OnSelectedIndexChanged="DrdLng_SelectedIndexChanged">
-                                            <asp:ListItem value='fa' data-image="assets/images/ir.png" data-title="Farsi">فارسی</asp:ListItem>
-                                            <asp:ListItem value='en' data-image="/assets/images/eng.png" data-title="English">English</asp:ListItem>
-                                            <asp:ListItem value='ar' data-image="/assets/images/fn.png" data-title="Arabic">اللغة العربية</asp:ListItem>
+                                            <asp:ListItem Value='fa' data-image="assets/images/ir.png" data-title="Farsi">فارسی</asp:ListItem>
+                                            <asp:ListItem Value='en' data-image="/assets/images/eng.png" data-title="English">English</asp:ListItem>
+                                            <asp:ListItem Value='ar' data-image="/assets/images/fn.png" data-title="Arabic">اللغة العربية</asp:ListItem>
                                         </asp:DropDownList>
-                                       <%-- <select name="countries" class="custome_select">
+                                        <%-- <select name="countries" class="custome_select">
                                             <option value='fa' data-image="/assets/images/ir.png" data-title="Farsi">فارسی</option>
                                             <option value='en' data-image="/assets/images/eng.png" data-title="English">English</option>
                                             <option value='ar' data-image="/assets/images/fn.png" data-title="Arabic">اللغة العربية</option>
@@ -92,7 +92,7 @@
                                     </ul>
                                 </div>
                             </div>
-                           <%-- <div class="col-md-6">
+                            <%-- <div class="col-md-6">
                                 <div class="text-center text-md-right">
                                     <ul class="header_list">
                                         <li><a href="login.aspx"><i class="ti-user"></i><span>ورود</span></a></li>
@@ -106,7 +106,7 @@
                     <div class="container">
                         <nav class="navbar navbar-expand-lg">
                             <a class="navbar-brand" href="http://doctoryab-iran.com">
-                               <%-- <img class="logo_light" src="/assets/images/logo.png" alt="logo" />
+                                <%-- <img class="logo_light" src="/assets/images/logo.png" alt="logo" />
                                 <img class="logo_dark" src="/assets/images/logo.png" alt="logo" />--%>
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
@@ -121,7 +121,7 @@
                                     <li><a class="nav-link nav_item" href="/contact.aspx">تماس با ما</a></li>
                                 </ul>
                             </div>
-                           <%-- <ul class="navbar-nav attr-nav align-items-center">
+                            <%-- <ul class="navbar-nav attr-nav align-items-center">
                                 <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
                                     <div class="search_wrap">
                                         <span class="close-search"><i class="ion-ios-close-empty"></i></span>
@@ -151,7 +151,7 @@
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="widget">
                                     <div class="footer_logo">
-                                       <%-- <a href="http://doctoryab-iran.com/">
+                                        <%-- <a href="http://doctoryab-iran.com/">
                                             <img src="/assets/images/logo.png" alt="logo" /></a>--%>
                                     </div>
                                     <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlAbout">
@@ -206,10 +206,12 @@
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="widget">
                                     <h6 class="widget_title">اینستاگرام</h6>
-                                    <%-- <ul class="widget_instafeed instafeed_col4">
-                                    <li><a href="#">
-                                        <img src="/assets/images/insta_img1.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                                    <li><a href="#">
+                                    <ul class="widget_instafeed instafeed_col4">
+                                        <li>
+                                            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=589687&Code=ByvVNLxAyjVSzbeDsujU4e2cLrUQeN7C'>
+                                                <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=589687&Code=ByvVNLxAyjVSzbeDsujU4e2cLrUQeN7C' alt='' style='cursor: pointer' code='ByvVNLxAyjVSzbeDsujU4e2cLrUQeN7C'></a>
+                                        </li>
+                                        <%--   <li><a href="#">
                                         <img src="/assets/images/insta_img2.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                                     <li><a href="#">
                                         <img src="/assets/images/insta_img3.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
@@ -222,8 +224,8 @@
                                     <li><a href="#">
                                         <img src="/assets/images/insta_img7.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                                     <li><a href="#">
-                                        <img src="/assets/images/insta_img8.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                                </ul>--%>
+                                        <img src="/assets/images/insta_img8.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>--%>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +333,7 @@
             <script src="/assets/js/jquery.elevatezoom.js"></script>
             <!-- scripts js -->
             <script src="/assets/js/scripts.js"></script>
-        </form>
+        </div>
     </form>
 </body>
 </html>

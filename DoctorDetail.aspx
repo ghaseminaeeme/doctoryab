@@ -88,7 +88,7 @@
                         <ItemTemplate>
                             <div class="pr_detail">
                                 <div class="product_description">
-                                    <h2 class="product_title"><a href="DoctorDetail.aspx"><%#Eval("dName") %></a></h2>
+                                   <a href="DoctorDetail.aspx"> <h1 class="product_title"><%#Eval("dName") %></h1></a>
                                     <div class="product_price">
                                         <span class="subtitle"><%#Eval("bSubject") %></span>
                                         <p><%#Eval("dSpecialty") %></p>
@@ -284,7 +284,7 @@ Headers:
                                             &nbsp;&nbsp;
                                         </div>
                                         <div class="product_info">
-                                            <h6 class="product_title"><a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'><%#Eval("dName") %></a></h6>
+                                            <h2 class="product_title"><a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'><%#Eval("dName") %></a></h2>
                                             <div class="product_price">
                                                 <span class="price"><%#Eval("bSubject") %></span>
                                             </div>

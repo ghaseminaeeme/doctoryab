@@ -119,8 +119,8 @@
                 <div class="middle-header dark_skin">
                     <div class="container">
                         <div class="nav_block">
-                           <a class="navbar-brand" href="http://doctoryab-iran.com/">
-                               <%--  <img class="logo_light" src="assets/images/logo.png" alt="logo" />
+                            <a class="navbar-brand" href="http://doctoryab-iran.com/">
+                                <%--  <img class="logo_light" src="assets/images/logo.png" alt="logo" />
                                 <img class="logo_dark" src="assets/images/logo.png" alt="logo" />--%>
                             </a>
                             <div class="contact_phone order-md-last">
@@ -379,7 +379,7 @@
                                 SelectCommand="SELECT TOP (8) id, vSrc, vSubject FROM dbo.TblVideo WHERE (vSrc IS NOT NULL) AND (vStatus <> 00) AND (vLAnguage = 1) order by id desc"></asp:SqlDataSource>
 
 
-                             <asp:Repeater ID="Repeater6" runat="server" DataSourceID="SqlVideo">
+                            <asp:Repeater ID="Repeater6" runat="server" DataSourceID="SqlVideo">
                                 <ItemTemplate>
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-3 video">
                                         <div class="home-video">
@@ -543,11 +543,13 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="widget">
-                                    <h6 class="widget_title">اینستاگرام</h6>
-                                    <%-- <ul class="widget_instafeed instafeed_col4">
-                                    <li><a href="#">
-                                        <img src="assets/images/insta_img1.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                                    <li><a href="#">
+                                    <h6 class="widget_title">اعتبارسنجی</h6>
+                                    <ul class="widget_instafeed instafeed_col4">
+                                        <li>
+                                            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=589687&Code=ByvVNLxAyjVSzbeDsujU4e2cLrUQeN7C'>
+                                                <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=589687&Code=ByvVNLxAyjVSzbeDsujU4e2cLrUQeN7C' alt='' style='cursor: pointer' code='ByvVNLxAyjVSzbeDsujU4e2cLrUQeN7C'></a>
+                                        </li>
+                                        <%--   <li><a href="#">
                                         <img src="assets/images/insta_img2.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                                     <li><a href="#">
                                         <img src="assets/images/insta_img3.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
@@ -560,8 +562,8 @@
                                     <li><a href="#">
                                         <img src="assets/images/insta_img7.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                                     <li><a href="#">
-                                        <img src="assets/images/insta_img8.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                                </ul>--%>
+                                        <img src="assets/images/insta_img8.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>--%>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
