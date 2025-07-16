@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
     <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css?8764564" />
     <!-- RTL CSS -->
     <link rel="stylesheet" href="assets/css/rtl-style.css" />
     <link rel="stylesheet" href="assets/css/custom.css?gfjdjd" />
@@ -93,24 +93,24 @@
                                             <asp:ListItem Value='ar' data-image="/assets/images/fn.png" data-title="Arabic">اللغة العربية</asp:ListItem>
                                         </asp:DropDownList>
 
-                                        <%-- <ul class="custome_select">
+                                        <!-- <ul class="custome_select">
                                             <li><a><img src="assets/images/ir.png"/><span>فارسی</span></a></li>
                                             <li><a><img src="assets/images/ir.png"/><span>فارسی</span></a></li>
-                                        </ul>--%>
+                                        </ul>-->
 
-                                        <%--                                        <select name="countries" class="custome_select">
+                                        <!--                                        <select name="countries" class="custome_select">
                                             <option value='fa' data-image="assets/images/ir.png" data-title="Farsi">فارسی</option>
                                             <option value='en' data-image="/assets/images/eng.png" data-title="English">English</option>
                                             <option value='ar' data-image="/assets/images/fn.png" data-title="Arabic">اللغة العربية</option>
-                                        </select>--%>
+                                        </select>-->
                                     </div>
-                                    <%-- <div class="ml-3">
+                                    <!-- <div class="ml-3">
                                     <select name="countries" class="custome_select">
                                         <option value='GBR' data-title="GBR">شهر</option>
                                         <option value='USD' data-title="USD">مشهد </option>
                                         <option value='EUR' data-title="EUR">تهران</option>
                                     </select>
-                                </div>--%>
+                                </div>-->
                                 </div>
                             </div>
                         </div>
@@ -120,8 +120,8 @@
                     <div class="container">
                         <div class="nav_block">
                             <a class="navbar-brand" href="http://doctoryab-iran.com/">
-                                <%--  <img class="logo_light" src="assets/images/logo.png" alt="logo" />
-                                <img class="logo_dark" src="assets/images/logo.png" alt="logo" />--%>
+                                  <img class="logo_light" src="assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
+                                <img class="logo_dark" src="assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
                             </a>
                             <div class="contact_phone order-md-last">
                                 <%-- <asp:FormView ID="FormView2" runat="server" DataSourceID="SqlAbout">
@@ -488,8 +488,8 @@
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="widget">
                                     <div class="footer_logo">
-                                        <%--<a href="http://doctoryab-iran.com/">
-                                            <img src="assets/images/logo.png" alt="logo" /></a>--%>
+                                        <a href="http://doctoryab-iran.com/">
+                                            <img src="assets/images/doctoryab_logo.png" alt="دکتریاب ایران" /></a>
                                     </div>
                                     <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlAbout">
                                         <ItemTemplate>

@@ -764,8 +764,8 @@ div.banner_large_pad {
 }
 .product_search_form {
 	max-width: 100%;
-/*	display: none;
-*/	position: absolute;
+	/*display: none;*/
+	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: -146px;
@@ -774,6 +774,8 @@ div.banner_large_pad {
 	width: 100%;
 	padding: 15px 15px;
 	background-color: #fff;
+
+	/*top:150px;*/
 }
 .product_search_form.show {
 	display: block;

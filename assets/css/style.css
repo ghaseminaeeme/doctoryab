@@ -1066,7 +1066,7 @@ button:focus {
 }
 .middle-header {
 	padding: 10px 0;
-	position: relative;
+	/*position: relative;*/
 }
 .navbar {
 	padding: 0;

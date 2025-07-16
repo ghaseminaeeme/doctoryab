@@ -37,10 +37,10 @@
     <link rel="stylesheet" href="/assets/css/slick-theme.css">
     <!-- Style CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css?8764564">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/assets/css/rtl-style.css">
-    <link rel="stylesheet" href="/assets/css/custom.css?fd5h4f" />
+    <link rel="stylesheet" href="/assets/css/custom.css?87651" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -106,8 +106,8 @@
                     <div class="container">
                         <nav class="navbar navbar-expand-lg">
                             <a class="navbar-brand" href="http://doctoryab-iran.com">
-                                <%-- <img class="logo_light" src="/assets/images/logo.png" alt="logo" />
-                                <img class="logo_dark" src="/assets/images/logo.png" alt="logo" />--%>
+                                 <img class="logo_light" src="/assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
+                                <img class="logo_dark" src="/assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
                                 <span class="ion-android-menu"></span>
@@ -151,8 +151,8 @@
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="widget">
                                     <div class="footer_logo">
-                                        <%-- <a href="http://doctoryab-iran.com/">
-                                            <img src="/assets/images/logo.png" alt="logo" /></a>--%>
+                                         <a href="http://doctoryab-iran.com/">
+                                            <img src="/assets/images/doctoryab_logo.png" alt="دکتریاب ایران" /></a>
                                     </div>
                                     <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlAbout">
                                         <ItemTemplate>

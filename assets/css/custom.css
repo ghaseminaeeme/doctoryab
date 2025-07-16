@@ -3,6 +3,12 @@
     width: 182px;
     height: 47px;
 }
+@media(max-width: 768px) {
+    .dark_skin .logo_dark, .light_skin .logo_light {
+        width: 145.6px !important;
+        height: 37.6px;
+    }
+}
 .aparat-icon {
     margin-top: -7px;
 }
