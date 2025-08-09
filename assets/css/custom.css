@@ -303,3 +303,42 @@
 .product_title {
     font-size: 1.5rem;
 }
+
+
+.bgWhite {
+    background: #fff;
+}
+
+.panel-bc .breadcrumb {
+    background: none !important;
+}
+
+.bgGray {
+    background: #aaa;
+    cursor: no-drop;   
+}
+
+.doctor-appointment {
+}
+    .doctor-appointment .tbl-appointments td {
+        width: 10%;
+        cursor: pointer;
+        text-align:center;
+        color:#3b3b3d;
+    }
+        .doctor-appointment .tbl-appointments td > div {
+            border: solid 1px #888;
+            margin: 5px;
+            padding: 10px 5px;
+            cursor: pointer;
+        }
+
+    .doctor-appointment .product-price i {
+        font-size: 20px;
+        color: #fac053;
+    }
+.doctor-appointment .apt-sub {
+    font-size: 16px;
+    padding: 15px 5px;
+    color: #FF324D;
+}

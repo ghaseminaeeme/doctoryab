@@ -334,6 +334,7 @@
     <Content Include="Admin\Admin\tiny_mce\utils\validate.js" />
     <Content Include="Admin\advantage.aspx" />
     <Content Include="Admin\adver.aspx" />
+    <Content Include="Admin\appointment.aspx" />
     <Content Include="Admin\assets\css\basic.css" />
     <Content Include="Admin\assets\css\bootstrap-fileupload.min.css" />
     <Content Include="Admin\assets\css\bootstrap-social.css" />
@@ -2408,6 +2409,244 @@
     <Content Include="js\chosen.proto.min.js" />
     <Content Include="js\jquery-1.6.4.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="panel\appointments.aspx" />
+    <Content Include="panel\assets\css\bootstrap.min.css" />
+    <Content Include="panel\assets\css\calendar\aqua\active-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\dark-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\hover-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\menuarrow.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\normal-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\rowhover-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\status-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\theme.css" />
+    <Content Include="panel\assets\css\calendar\aqua\title-bg.gif" />
+    <Content Include="panel\assets\css\calendar\aqua\today-bg.gif" />
+    <Content Include="panel\assets\css\calendar\calendar-blue.css" />
+    <Content Include="panel\assets\css\calendar\menuarrow.gif" />
+    <Content Include="panel\assets\css\calendar\menuarrow2.gif" />
+    <Content Include="panel\assets\css\custom.css" />
+    <Content Include="panel\assets\css\flatpickr.min.css" />
+    <Content Include="panel\assets\css\fullcalendar.min.css" />
+    <Content Include="panel\assets\css\jquery.timepicker.min.css" />
+    <Content Include="panel\assets\css\materialdesignicons.min.css" />
+    <Content Include="panel\assets\css\remixicon.css" />
+    <Content Include="panel\assets\css\select2.min.css" />
+    <Content Include="panel\assets\css\simplebar.css" />
+    <Content Include="panel\assets\css\slick-theme.css" />
+    <Content Include="panel\assets\css\slick.css" />
+    <Content Include="panel\assets\css\style-dark-rtl.min.css" />
+    <Content Include="panel\assets\css\style-dark.min.css" />
+    <Content Include="panel\assets\css\style-rtl.min.css" />
+    <Content Include="panel\assets\css\style.min.css" />
+    <Content Include="panel\assets\css\tiny-slider.css" />
+    <Content Include="panel\assets\css\unicons.iconscout.com\release\v3.0.6\css\line.css" />
+    <Content Include="panel\assets\fonts\ajax-loader.gif" />
+    <Content Include="panel\assets\fonts\remixicon.svg" />
+    <Content Include="panel\assets\images\about\about-2.png" />
+    <Content Include="panel\assets\images\bg\01.jpg" />
+    <Content Include="panel\assets\images\bg\02.jpg" />
+    <Content Include="panel\assets\images\bg\03.jpg" />
+    <Content Include="panel\assets\images\bg\04.jpg" />
+    <Content Include="panel\assets\images\bg\05.jpg" />
+    <Content Include="panel\assets\images\bg\about.jpg" />
+    <Content Include="panel\assets\images\bg\bg-chat.png" />
+    <Content Include="panel\assets\images\bg\bg-lines-one.png" />
+    <Content Include="panel\assets\images\bg\bg-profile.jpg" />
+    <Content Include="panel\assets\images\bg\department.jpg" />
+    <Content Include="panel\assets\images\bg\pharm01.jpg" />
+    <Content Include="panel\assets\images\bg\pharm02.jpg" />
+    <Content Include="panel\assets\images\bg\pharm03.jpg" />
+    <Content Include="panel\assets\images\bg\slider01.jpg" />
+    <Content Include="panel\assets\images\bg\slider02.jpg" />
+    <Content Include="panel\assets\images\bg\slider03.jpg" />
+    <Content Include="panel\assets\images\blog\01.jpg" />
+    <Content Include="panel\assets\images\blog\02.jpg" />
+    <Content Include="panel\assets\images\blog\03.jpg" />
+    <Content Include="panel\assets\images\blog\04.jpg" />
+    <Content Include="panel\assets\images\blog\05.jpg" />
+    <Content Include="panel\assets\images\blog\06.jpg" />
+    <Content Include="panel\assets\images\blog\07.jpg" />
+    <Content Include="panel\assets\images\blog\08.jpg" />
+    <Content Include="panel\assets\images\blog\09.jpg" />
+    <Content Include="panel\assets\images\blog\single.jpg" />
+    <Content Include="panel\assets\images\client\01.jpg" />
+    <Content Include="panel\assets\images\client\02.jpg" />
+    <Content Include="panel\assets\images\client\03.jpg" />
+    <Content Include="panel\assets\images\client\04.jpg" />
+    <Content Include="panel\assets\images\client\05.jpg" />
+    <Content Include="panel\assets\images\client\06.jpg" />
+    <Content Include="panel\assets\images\client\07.jpg" />
+    <Content Include="panel\assets\images\client\08.jpg" />
+    <Content Include="panel\assets\images\client\09.jpg" />
+    <Content Include="panel\assets\images\client\10.jpg" />
+    <Content Include="panel\assets\images\client\amazon.png" />
+    <Content Include="panel\assets\images\client\amazon.svg" />
+    <Content Include="panel\assets\images\client\Codepen.svg" />
+    <Content Include="panel\assets\images\client\dribbble.svg" />
+    <Content Include="panel\assets\images\client\google.png" />
+    <Content Include="panel\assets\images\client\google.svg" />
+    <Content Include="panel\assets\images\client\lenovo.png" />
+    <Content Include="panel\assets\images\client\lenovo.svg" />
+    <Content Include="panel\assets\images\client\paypal.png" />
+    <Content Include="panel\assets\images\client\paypal.svg" />
+    <Content Include="panel\assets\images\client\shopify.png" />
+    <Content Include="panel\assets\images\client\shopify.svg" />
+    <Content Include="panel\assets\images\client\spotify.png" />
+    <Content Include="panel\assets\images\client\spotify.svg" />
+    <Content Include="panel\assets\images\cta.jpg" />
+    <Content Include="panel\assets\images\doctors\01.jpg" />
+    <Content Include="panel\assets\images\doctors\02.jpg" />
+    <Content Include="panel\assets\images\doctors\03.jpg" />
+    <Content Include="panel\assets\images\doctors\04.jpg" />
+    <Content Include="panel\assets\images\doctors\05.jpg" />
+    <Content Include="panel\assets\images\doctors\06.jpg" />
+    <Content Include="panel\assets\images\doctors\07.jpg" />
+    <Content Include="panel\assets\images\doctors\08.jpg" />
+    <Content Include="panel\assets\images\doctors\09.jpg" />
+    <Content Include="panel\assets\images\doctors\10.jpg" />
+    <Content Include="panel\assets\images\doctors\dr-profile.png" />
+    <Content Include="panel\assets\images\doctors\profile-bg.jpg" />
+    <Content Include="panel\assets\images\favicon.ico" />
+    <Content Include="panel\assets\images\hero.png" />
+    <Content Include="panel\assets\images\language\american.png" />
+    <Content Include="panel\assets\images\language\chinese.png" />
+    <Content Include="panel\assets\images\language\european.png" />
+    <Content Include="panel\assets\images\language\indian.png" />
+    <Content Include="panel\assets\images\language\japanese.png" />
+    <Content Include="panel\assets\images\language\russian.png" />
+    <Content Include="panel\assets\images\layouts\dark-dash-rtl.png" />
+    <Content Include="panel\assets\images\layouts\landing-dark-rtl.png" />
+    <Content Include="panel\assets\images\layouts\landing-light-rtl.png" />
+    <Content Include="panel\assets\images\layouts\light-dash-rtl.png" />
+    <Content Include="panel\assets\images\logo-dark.png" />
+    <Content Include="panel\assets\images\logo-icon.png" />
+    <Content Include="panel\assets\images\logo-light.png" />
+    <Content Include="panel\assets\images\payment\american.png" />
+    <Content Include="panel\assets\images\payment\discover.png" />
+    <Content Include="panel\assets\images\payment\mastercard.png" />
+    <Content Include="panel\assets\images\payment\rupay.png" />
+    <Content Include="panel\assets\images\pharmacy\cancer.jpg" />
+    <Content Include="panel\assets\images\pharmacy\cough.jpg" />
+    <Content Include="panel\assets\images\pharmacy\cta.jpg" />
+    <Content Include="panel\assets\images\pharmacy\delivery.jpg" />
+    <Content Include="panel\assets\images\pharmacy\diabetes.jpg" />
+    <Content Include="panel\assets\images\pharmacy\doctor.jpg" />
+    <Content Include="panel\assets\images\pharmacy\download.png" />
+    <Content Include="panel\assets\images\pharmacy\heart.jpg" />
+    <Content Include="panel\assets\images\pharmacy\pain.jpg" />
+    <Content Include="panel\assets\images\pharmacy\sexual.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\01.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\02.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\03.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\04.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\ashwagandha.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\beby-products.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\diabend.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\facewash.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\handwash.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\herbal-care.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\kidney-tray.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\masks.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\medical-equptment.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\medicine.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\medigrip.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\nicotex.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\praganews.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\pulse-oximeter.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\sanitizer.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\smoking-habit.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\stethoscope.jpg" />
+    <Content Include="panel\assets\images\pharmacy\shop\thermometer.jpg" />
+    <Content Include="panel\assets\images\pharmacy\skin.jpg" />
+    <Content Include="panel\assets\images\pharmacy\weight.jpg" />
+    <Content Include="panel\assets\images\svg\error.svg" />
+    <Content Include="panel\assets\images\svg\vaccine-development-amico.svg" />
+    <Content Include="panel\assets\js\apexcharts.min.js" />
+    <Content Include="panel\assets\js\app.js" />
+    <Content Include="panel\assets\js\areachart.init.js" />
+    <Content Include="panel\assets\js\bootstrap.bundle.min.js" />
+    <Content Include="panel\assets\js\bootstrap.min.js" />
+    <Content Include="panel\assets\js\calendar-setup.js" />
+    <Content Include="panel\assets\js\calendar.js" />
+    <Content Include="panel\assets\js\ckeditor.js" />
+    <Content Include="panel\assets\js\columnchart.init.js" />
+    <Content Include="panel\assets\js\contact.js" />
+    <Content Include="panel\assets\js\counter.init.js" />
+    <Content Include="panel\assets\js\easy_background.js" />
+    <Content Include="panel\assets\js\fa.js" />
+    <Content Include="panel\assets\js\feather.min.js" />
+    <Content Include="panel\assets\js\flatpickr.init.js" />
+    <Content Include="panel\assets\js\flatpickr.min.js" />
+    <Content Include="panel\assets\js\fullcalendar.init.js" />
+    <Content Include="panel\assets\js\fullcalendar.min.js" />
+    <Content Include="panel\assets\js\jalali.js" />
+    <Content Include="panel\assets\js\jdate.min.js" />
+    <Content Include="panel\assets\js\jquery-3.3.1.min.js" />
+    <Content Include="panel\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="panel\assets\js\jquery.min.js" />
+    <Content Include="panel\assets\js\jquery.timepicker.min.js" />
+    <Content Include="panel\assets\js\main.min.js" />
+    <Content Include="panel\assets\js\plugins\rangePlugin.js" />
+    <Content Include="panel\assets\js\radialchartinit.js" />
+    <Content Include="panel\assets\js\select2.init.js" />
+    <Content Include="panel\assets\js\select2.min.js" />
+    <Content Include="panel\assets\js\simplebar.min.js" />
+    <Content Include="panel\assets\js\slick.init.js" />
+    <Content Include="panel\assets\js\slick.min.js" />
+    <Content Include="panel\assets\js\swiper-bundle.min.js" />
+    <Content Include="panel\assets\js\timepicker.init.js" />
+    <Content Include="panel\assets\js\tiny-slider-init.js" />
+    <Content Include="panel\assets\js\tiny-slider.js" />
+    <Content Include="panel\assets\lang\calendar-af.js" />
+    <Content Include="panel\assets\lang\calendar-al.js" />
+    <Content Include="panel\assets\lang\calendar-bg.js" />
+    <Content Include="panel\assets\lang\calendar-big5-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-big5.js" />
+    <Content Include="panel\assets\lang\calendar-br.js" />
+    <Content Include="panel\assets\lang\calendar-ca.js" />
+    <Content Include="panel\assets\lang\calendar-cs-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-cs-win.js" />
+    <Content Include="panel\assets\lang\calendar-da.js" />
+    <Content Include="panel\assets\lang\calendar-dari.js" />
+    <Content Include="panel\assets\lang\calendar-de.js" />
+    <Content Include="panel\assets\lang\calendar-du.js" />
+    <Content Include="panel\assets\lang\calendar-el.js" />
+    <Content Include="panel\assets\lang\calendar-en.js" />
+    <Content Include="panel\assets\lang\calendar-es.js" />
+    <Content Include="panel\assets\lang\calendar-fa.js" />
+    <Content Include="panel\assets\lang\calendar-fi.js" />
+    <Content Include="panel\assets\lang\calendar-fr.js" />
+    <Content Include="panel\assets\lang\calendar-he-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-hr-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-hr.js" />
+    <Content Include="panel\assets\lang\calendar-hu.js" />
+    <Content Include="panel\assets\lang\calendar-it.js" />
+    <Content Include="panel\assets\lang\calendar-jp.js" />
+    <Content Include="panel\assets\lang\calendar-ko-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-ko.js" />
+    <Content Include="panel\assets\lang\calendar-lt-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-lt.js" />
+    <Content Include="panel\assets\lang\calendar-lv.js" />
+    <Content Include="panel\assets\lang\calendar-nl.js" />
+    <Content Include="panel\assets\lang\calendar-no.js" />
+    <Content Include="panel\assets\lang\calendar-pashto.js" />
+    <Content Include="panel\assets\lang\calendar-pl-utf8.js" />
+    <Content Include="panel\assets\lang\calendar-pl.js" />
+    <Content Include="panel\assets\lang\calendar-pt.js" />
+    <Content Include="panel\assets\lang\calendar-ro.js" />
+    <Content Include="panel\assets\lang\calendar-ru.js" />
+    <Content Include="panel\assets\lang\calendar-ru_win_.js" />
+    <Content Include="panel\assets\lang\calendar-si.js" />
+    <Content Include="panel\assets\lang\calendar-sk.js" />
+    <Content Include="panel\assets\lang\calendar-sp.js" />
+    <Content Include="panel\assets\lang\calendar-sv.js" />
+    <Content Include="panel\assets\lang\calendar-tr.js" />
+    <Content Include="panel\assets\lang\calendar-zh.js" />
+    <Content Include="panel\assets\lang\cn_utf8.js" />
+    <Content Include="panel\configAppointment.aspx" />
+    <Content Include="panel\default.aspx" />
+    <Content Include="panel\reserves.aspx" />
+    <Content Include="reserve.aspx" />
     <Content Include="upload\about\abt1.jpg" />
     <Content Include="upload\blog\2.jpg" />
     <Content Include="upload\doctors\5.jpg" />
@@ -2462,6 +2701,13 @@
     </Compile>
     <Compile Include="Admin\adver.aspx.designer.cs">
       <DependentUpon>adver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\appointment.aspx.cs">
+      <DependentUpon>appointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\appointment.aspx.designer.cs">
+      <DependentUpon>appointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\banner.aspx.cs">
       <DependentUpon>banner.aspx</DependentUpon>
@@ -2704,44 +2950,50 @@
     <Compile Include="En\Site1En.Master.designer.cs">
       <DependentUpon>Site1En.Master</DependentUpon>
     </Compile>
-    <Compile Include="Generated\AllStructs.cs" />
-    <Compile Include="Generated\StoredProcedures.cs" />
-    <Compile Include="Generated\TblAbout.cs" />
-    <Compile Include="Generated\TblAboutController.cs" />
-    <Compile Include="Generated\TblAdvantage.cs" />
-    <Compile Include="Generated\TblAdvantageController.cs" />
-    <Compile Include="Generated\TblAdver.cs" />
-    <Compile Include="Generated\TblAdverController.cs" />
-    <Compile Include="Generated\TblAdvertise.cs" />
-    <Compile Include="Generated\TblAdvertiseController.cs" />
-    <Compile Include="Generated\TblBanner.cs" />
-    <Compile Include="Generated\TblBannerController.cs" />
-    <Compile Include="Generated\TblBlog.cs" />
-    <Compile Include="Generated\TblBlogController.cs" />
-    <Compile Include="Generated\TblBranch.cs" />
-    <Compile Include="Generated\TblBranchController.cs" />
-    <Compile Include="Generated\TblCard.cs" />
-    <Compile Include="Generated\TblCardController.cs" />
-    <Compile Include="Generated\TblCity.cs" />
-    <Compile Include="Generated\TblCityController.cs" />
-    <Compile Include="Generated\TblDoctor.cs" />
-    <Compile Include="Generated\TblDoctorController.cs" />
-    <Compile Include="Generated\TblDoctorImage.cs" />
-    <Compile Include="Generated\TblDoctorImageController.cs" />
-    <Compile Include="Generated\TblMessage.cs" />
-    <Compile Include="Generated\TblMessageController.cs" />
-    <Compile Include="Generated\TblPage.cs" />
-    <Compile Include="Generated\TblPageController.cs" />
-    <Compile Include="Generated\TblPicture.cs" />
-    <Compile Include="Generated\TblPictureController.cs" />
-    <Compile Include="Generated\TblPlan.cs" />
-    <Compile Include="Generated\TblPlanController.cs" />
-    <Compile Include="Generated\TblState.cs" />
-    <Compile Include="Generated\TblStateController.cs" />
-    <Compile Include="Generated\TblUser.cs" />
-    <Compile Include="Generated\TblUserController.cs" />
-    <Compile Include="Generated\TblVideo.cs" />
-    <Compile Include="Generated\TblVideoController.cs" />
+    <Compile Include="Generate\AllStructs.cs" />
+    <Compile Include="Generate\AppointmentConfig.cs" />
+    <Compile Include="Generate\AppointmentConfigController.cs" />
+    <Compile Include="Generate\StoredProcedures.cs" />
+    <Compile Include="Generate\TblAbout.cs" />
+    <Compile Include="Generate\TblAboutController.cs" />
+    <Compile Include="Generate\TblAdvantage.cs" />
+    <Compile Include="Generate\TblAdvantageController.cs" />
+    <Compile Include="Generate\TblAdver.cs" />
+    <Compile Include="Generate\TblAdverController.cs" />
+    <Compile Include="Generate\TblAdvertise.cs" />
+    <Compile Include="Generate\TblAdvertiseController.cs" />
+    <Compile Include="Generate\TblAppointment.cs" />
+    <Compile Include="Generate\TblAppointmentController.cs" />
+    <Compile Include="Generate\TblBanner.cs" />
+    <Compile Include="Generate\TblBannerController.cs" />
+    <Compile Include="Generate\TblBlog.cs" />
+    <Compile Include="Generate\TblBlogController.cs" />
+    <Compile Include="Generate\TblBranch.cs" />
+    <Compile Include="Generate\TblBranchController.cs" />
+    <Compile Include="Generate\TblCard.cs" />
+    <Compile Include="Generate\TblCardController.cs" />
+    <Compile Include="Generate\TblCity.cs" />
+    <Compile Include="Generate\TblCityController.cs" />
+    <Compile Include="Generate\TblDoctor.cs" />
+    <Compile Include="Generate\TblDoctorController.cs" />
+    <Compile Include="Generate\TblDoctorImage.cs" />
+    <Compile Include="Generate\TblDoctorImageController.cs" />
+    <Compile Include="Generate\TblMessage.cs" />
+    <Compile Include="Generate\TblMessageController.cs" />
+    <Compile Include="Generate\TblPage.cs" />
+    <Compile Include="Generate\TblPageController.cs" />
+    <Compile Include="Generate\TblPicture.cs" />
+    <Compile Include="Generate\TblPictureController.cs" />
+    <Compile Include="Generate\TblPlan.cs" />
+    <Compile Include="Generate\TblPlanController.cs" />
+    <Compile Include="Generate\TblReserve.cs" />
+    <Compile Include="Generate\TblReserveController.cs" />
+    <Compile Include="Generate\TblState.cs" />
+    <Compile Include="Generate\TblStateController.cs" />
+    <Compile Include="Generate\TblUser.cs" />
+    <Compile Include="Generate\TblUserController.cs" />
+    <Compile Include="Generate\TblVideo.cs" />
+    <Compile Include="Generate\TblVideoController.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2749,7 +3001,49 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="panel\appointments.aspx.cs">
+      <DependentUpon>appointments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel\appointments.aspx.designer.cs">
+      <DependentUpon>appointments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="panel\configAppointment.aspx.cs">
+      <DependentUpon>configAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel\configAppointment.aspx.designer.cs">
+      <DependentUpon>configAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="panel\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="panel\PanelSite1.Master.cs">
+      <DependentUpon>PanelSite1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel\PanelSite1.Master.designer.cs">
+      <DependentUpon>PanelSite1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="panel\reserves.aspx.cs">
+      <DependentUpon>reserves.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel\reserves.aspx.designer.cs">
+      <DependentUpon>reserves.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reserve.aspx.cs">
+      <DependentUpon>reserve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reserve.aspx.designer.cs">
+      <DependentUpon>reserve.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2867,6 +3161,18 @@
     <Content Include="assets\fonts\fontawesome-free-5.15.1-web\webfonts\fa-solid-900.woff2" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="panel\PanelSite1.Master" />
+    <Content Include="panel\assets\fonts\materialdesignicons-webfont-1.eot" />
+    <Content Include="panel\assets\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="panel\assets\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="panel\assets\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="panel\assets\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="panel\assets\fonts\remixicon.eot" />
+    <Content Include="panel\assets\fonts\remixicon.ttf" />
+    <Content Include="panel\assets\fonts\remixicon.woff" />
+    <Content Include="panel\assets\fonts\remixicon.woff2" />
+    <Content Include="panel\assets\fonts\slick.ttf" />
+    <Content Include="panel\assets\fonts\slick.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

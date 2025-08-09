@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/assets/css/responsive.css?8764564">
     <!-- RTL CSS -->
     <link rel="stylesheet" href="/assets/css/rtl-style.css">
-    <link rel="stylesheet" href="/assets/css/custom.css?87651" />
+    <link rel="stylesheet" href="/assets/css/custom.css?65646" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -75,6 +75,9 @@
                                             <option value='en' data-image="/assets/images/eng.png" data-title="English">English</option>
                                             <option value='ar' data-image="/assets/images/fn.png" data-title="Arabic">اللغة العربية</option>
                                         </select>--%>
+                                    </div>
+                                    <div class="ml-3">
+                                        <a href='/panel' title="پنل پزشکان"><i class="fa fa-user"></i></a>
                                     </div>
                                     <%-- <div class="mr-3">
                                     <select name="countries" class="custome_select">

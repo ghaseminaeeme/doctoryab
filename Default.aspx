@@ -111,6 +111,9 @@
                                         <option value='EUR' data-title="EUR">تهران</option>
                                     </select>
                                 </div>-->
+                                    <div class="ml-3">
+                                        <a href='/panel' title="پنل پزشکان"><i class="fa fa-user"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +123,7 @@
                     <div class="container">
                         <div class="nav_block">
                             <a class="navbar-brand" href="http://doctoryab-iran.com/">
-                                  <img class="logo_light" src="assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
+                                <img class="logo_light" src="assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
                                 <img class="logo_dark" src="assets/images/doctoryab_logo.png" alt="دکتریاب ایران" />
                             </a>
                             <div class="contact_phone order-md-last">

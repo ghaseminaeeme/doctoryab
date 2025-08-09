@@ -1,0 +1,44 @@
+﻿@font-face {
+    font-family: 'IranYekan';
+    src: url('/assets/fonts/iranyekanweblight.eot');
+    src: url('/assets/fonts/iranyekanweblight.eot') format('embedded-opentype'), url('/assets/fonts/iranyekanweblight.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'IranYekan', sans-serif;
+    font-size: 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #292b2c;
+    font-family: 'IranYekan';
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+.lb-err {
+    font-size: 14px;
+    padding: 10px 5px;
+    color: #ac0b0b;
+    background: #fac7c7;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 400;
+    width: 100%;
+}
+
+.lb-suc {
+    font-size: 14px;
+    padding: 10px 5px;
+    color: #127a06;
+    background: #c7fbc1;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 400;
+    width: 100%;
+}
+.form-control {
+    border-color: rgb(210 211 212); 
+}
+.shadow {
+    box-shadow: 0 0 3px rgba(52, 58, 64, 0.45) !important;
+}

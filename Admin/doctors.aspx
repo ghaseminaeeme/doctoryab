@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminSite1.Master" AutoEventWireup="true" CodeBehind="doctors.aspx.cs" Inherits="_DoctorYab.Admin.doctors" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <h1 class="page-head-line">لیست پزشکان</h1>
         </div>
@@ -61,6 +62,7 @@
                             <asp:BoundField DataField="cName" HeaderText="شهر" SortExpression="cName"></asp:BoundField>
                             <asp:BoundField DataField="bSubject" HeaderText="گروه" SortExpression="bSubject"></asp:BoundField>
                             <asp:BoundField DataField="dSpecialty" HeaderText="زیر گروه" SortExpression="dSpecialty"></asp:BoundField>
+                            <asp:HyperLinkField Text="نوبت دهی" DataNavigateUrlFields="id" HeaderText="نوبت دهی" DataNavigateUrlFormatString="appointment.aspx?did={0}"></asp:HyperLinkField>
                             <asp:HyperLinkField DataNavigateUrlFields="id" HeaderText="ویرایش" DataNavigateUrlFormatString="editDoctor.aspx?did={0}">
                                 <ControlStyle CssClass="btn btn-success btn-xs fa fa-pencil"></ControlStyle>
                             </asp:HyperLinkField>

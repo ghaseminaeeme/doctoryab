@@ -260,6 +260,47 @@ Headers:
                     </div>
                 </div>
             </div>
+
+                <div class="doctor-appointment" id="appointment">
+                    <hr class="product-divider">
+
+                    <div class="apt-sub">
+                       
+                        <h6 class="new-price">  <i class="fa fa-calendar-check"></i> نوبت دهی</h6>
+                        <span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>
+                    </div>
+                    <table class="tbl-appointments">
+                        <tbody>
+                            <tr>
+                                <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlAppointment">
+                                    <ItemTemplate>
+                                        <td>
+                                            <div>
+                                            <a href='<%# Eval("aStatus").ToString() == "0" ? "reserve.aspx?id=" + Eval("id") + "&did=" +  Eval("aDoctorId")  : "#appointment" %>'>
+                                                <div class='app-item <%#Convert.ToString(Eval("aStatus")) == "1" ? "bgGray" : "bgWhite" %>'>
+                                                    <label><%#Eval("persianDate") %></label>
+                                                </div>
+                                            </a>
+                                                </div>
+                                        </td>
+                                    </ItemTemplate>
+                                    <EmptyDataTemplate>در حال حاضر نوبتی برای این پزشک وجود ندارد.</EmptyDataTemplate>
+                                </asp:ListView>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <asp:SqlDataSource ID="SqlAppointment" runat="server" ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>"
+                        SelectCommand="selectAppointment" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:QueryStringParameter Name="doctorId" QueryStringField="did" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
+
+
             <div class="row">
                 <div class="col-12">
                     <div class="small_divider"></div>
