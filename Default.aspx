@@ -47,15 +47,7 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <form>
-            <!-- LOADER -->
-            <%-- <div class="preloader">
-            <div class="lds-ellipsis">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>--%>
+
             <!-- END LOADER -->
             <header class="header_wrap">
                 <div class="top-header d-none d-md-block">
@@ -630,7 +622,7 @@
             <script src="assets/js/jquery.elevatezoom.js"></script>
             <!-- scripts js -->
             <script src="assets/js/scripts.js"></script>
-        </form>
+
     </form>
 </body>
 </html>

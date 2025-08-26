@@ -81,7 +81,7 @@ namespace DalWebSite
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int? RDoctorId,string RTrackingCode,string RTime,string RPhonenumber1,string RName,DateTime? RDatetime,string RPhonenumber,DateTime? RSaveDate)
+	    public void Insert(int? RDoctorId,string RTrackingCode,string RTime,string RPhonenumber1,string RName,DateTime? RDatetime,string RPhonenumber,DateTime? RSaveDate,string RDate,int? RDuration,byte? RStatus)
 	    {
 		    TblReserve item = new TblReserve();
 		    
@@ -101,6 +101,12 @@ namespace DalWebSite
             
             item.RSaveDate = RSaveDate;
             
+            item.RDate = RDate;
+            
+            item.RDuration = RDuration;
+            
+            item.RStatus = RStatus;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -109,7 +115,7 @@ namespace DalWebSite
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,int? RDoctorId,string RTrackingCode,string RTime,string RPhonenumber1,string RName,DateTime? RDatetime,string RPhonenumber,DateTime? RSaveDate)
+	    public void Update(int Id,int? RDoctorId,string RTrackingCode,string RTime,string RPhonenumber1,string RName,DateTime? RDatetime,string RPhonenumber,DateTime? RSaveDate,string RDate,int? RDuration,byte? RStatus)
 	    {
 		    TblReserve item = new TblReserve();
 	        item.MarkOld();
@@ -132,6 +138,12 @@ namespace DalWebSite
 			item.RPhonenumber = RPhonenumber;
 				
 			item.RSaveDate = RSaveDate;
+				
+			item.RDate = RDate;
+				
+			item.RDuration = RDuration;
+				
+			item.RStatus = RStatus;
 				
 	        item.Save(UserName);
 	    }

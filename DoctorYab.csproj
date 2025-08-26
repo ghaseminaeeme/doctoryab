@@ -2391,6 +2391,7 @@
     <Content Include="bootstrap-select.min.css" />
     <Content Include="bootstrap-select.min.js" />
     <Content Include="Contact.aspx" />
+    <Content Include="copy_appointment.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DoctorDetail.aspx" />
     <Content Include="Doctors.aspx" />
@@ -2647,6 +2648,7 @@
     <Content Include="panel\default.aspx" />
     <Content Include="panel\reserves.aspx" />
     <Content Include="reserve.aspx" />
+    <Content Include="test.aspx" />
     <Content Include="upload\about\abt1.jpg" />
     <Content Include="upload\blog\2.jpg" />
     <Content Include="upload\doctors\5.jpg" />
@@ -2887,6 +2889,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="copy_appointment.aspx.cs">
+      <DependentUpon>copy_appointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="copy_appointment.aspx.designer.cs">
+      <DependentUpon>copy_appointment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3050,6 +3059,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

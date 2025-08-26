@@ -159,6 +159,18 @@ namespace DalWebSite{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the selectAppointment_v1 Procedure
+        /// </summary>
+        public static StoredProcedure SelectAppointmentV1(int? doctorId)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("selectAppointment_v1", DataService.GetInstance("DbWebSiteConnectionString"), "dbo");
+        	
+            sp.Command.AddParameter("@doctorId", doctorId, DbType.Int32, 0, 10);
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the selectAppointmentDetail Procedure
         /// </summary>
         public static StoredProcedure SelectAppointmentDetail(int? id)

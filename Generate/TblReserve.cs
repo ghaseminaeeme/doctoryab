@@ -174,7 +174,7 @@ namespace DalWebSite
 				TableSchema.TableColumn colvarRTime = new TableSchema.TableColumn(schema);
 				colvarRTime.ColumnName = "rTime";
 				colvarRTime.DataType = DbType.AnsiString;
-				colvarRTime.MaxLength = 50;
+				colvarRTime.MaxLength = 0;
 				colvarRTime.AutoIncrement = false;
 				colvarRTime.IsNullable = true;
 				colvarRTime.IsPrimaryKey = false;
@@ -248,6 +248,45 @@ namespace DalWebSite
 				colvarRSaveDate.DefaultSetting = @"";
 				colvarRSaveDate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarRSaveDate);
+				
+				TableSchema.TableColumn colvarRDate = new TableSchema.TableColumn(schema);
+				colvarRDate.ColumnName = "rDate";
+				colvarRDate.DataType = DbType.AnsiString;
+				colvarRDate.MaxLength = 0;
+				colvarRDate.AutoIncrement = false;
+				colvarRDate.IsNullable = true;
+				colvarRDate.IsPrimaryKey = false;
+				colvarRDate.IsForeignKey = false;
+				colvarRDate.IsReadOnly = false;
+				colvarRDate.DefaultSetting = @"";
+				colvarRDate.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarRDate);
+				
+				TableSchema.TableColumn colvarRDuration = new TableSchema.TableColumn(schema);
+				colvarRDuration.ColumnName = "rDuration";
+				colvarRDuration.DataType = DbType.Int32;
+				colvarRDuration.MaxLength = 0;
+				colvarRDuration.AutoIncrement = false;
+				colvarRDuration.IsNullable = true;
+				colvarRDuration.IsPrimaryKey = false;
+				colvarRDuration.IsForeignKey = false;
+				colvarRDuration.IsReadOnly = false;
+				colvarRDuration.DefaultSetting = @"";
+				colvarRDuration.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarRDuration);
+				
+				TableSchema.TableColumn colvarRStatus = new TableSchema.TableColumn(schema);
+				colvarRStatus.ColumnName = "rStatus";
+				colvarRStatus.DataType = DbType.Byte;
+				colvarRStatus.MaxLength = 0;
+				colvarRStatus.AutoIncrement = false;
+				colvarRStatus.IsNullable = true;
+				colvarRStatus.IsPrimaryKey = false;
+				colvarRStatus.IsForeignKey = false;
+				colvarRStatus.IsReadOnly = false;
+				colvarRStatus.DefaultSetting = @"";
+				colvarRStatus.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarRStatus);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -339,6 +378,33 @@ namespace DalWebSite
 			get { return GetColumnValue<DateTime?>(Columns.RSaveDate); }
 			set { SetColumnValue(Columns.RSaveDate, value); }
 		}
+		  
+		[XmlAttribute("RDate")]
+		[Bindable(true)]
+        [DataMember]
+		public string RDate 
+		{
+			get { return GetColumnValue<string>(Columns.RDate); }
+			set { SetColumnValue(Columns.RDate, value); }
+		}
+		  
+		[XmlAttribute("RDuration")]
+		[Bindable(true)]
+        [DataMember]
+		public int? RDuration 
+		{
+			get { return GetColumnValue<int?>(Columns.RDuration); }
+			set { SetColumnValue(Columns.RDuration, value); }
+		}
+		  
+		[XmlAttribute("RStatus")]
+		[Bindable(true)]
+        [DataMember]
+		public byte? RStatus 
+		{
+			get { return GetColumnValue<byte?>(Columns.RStatus); }
+			set { SetColumnValue(Columns.RStatus, value); }
+		}
 		
 		#endregion
 		
@@ -359,7 +425,7 @@ namespace DalWebSite
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int? varRDoctorId,string varRTrackingCode,string varRTime,string varRPhonenumber1,string varRName,DateTime? varRDatetime,string varRPhonenumber,DateTime? varRSaveDate)
+		public static void Insert(int? varRDoctorId,string varRTrackingCode,string varRTime,string varRPhonenumber1,string varRName,DateTime? varRDatetime,string varRPhonenumber,DateTime? varRSaveDate,string varRDate,int? varRDuration,byte? varRStatus)
 		{
 			TblReserve item = new TblReserve();
 			
@@ -379,6 +445,12 @@ namespace DalWebSite
 			
 			item.RSaveDate = varRSaveDate;
 			
+			item.RDate = varRDate;
+			
+			item.RDuration = varRDuration;
+			
+			item.RStatus = varRStatus;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -389,7 +461,7 @@ namespace DalWebSite
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,int? varRDoctorId,string varRTrackingCode,string varRTime,string varRPhonenumber1,string varRName,DateTime? varRDatetime,string varRPhonenumber,DateTime? varRSaveDate)
+		public static void Update(int varId,int? varRDoctorId,string varRTrackingCode,string varRTime,string varRPhonenumber1,string varRName,DateTime? varRDatetime,string varRPhonenumber,DateTime? varRSaveDate,string varRDate,int? varRDuration,byte? varRStatus)
 		{
 			TblReserve item = new TblReserve();
 			
@@ -410,6 +482,12 @@ namespace DalWebSite
 				item.RPhonenumber = varRPhonenumber;
 			
 				item.RSaveDate = varRSaveDate;
+			
+				item.RDate = varRDate;
+			
+				item.RDuration = varRDuration;
+			
+				item.RStatus = varRStatus;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -487,6 +565,27 @@ namespace DalWebSite
         
         
         
+        public static TableSchema.TableColumn RDateColumn
+        {
+            get { return Schema.Columns[9]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn RDurationColumn
+        {
+            get { return Schema.Columns[10]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn RStatusColumn
+        {
+            get { return Schema.Columns[11]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -500,6 +599,9 @@ namespace DalWebSite
 			 public static string RDatetime = @"rDatetime";
 			 public static string RPhonenumber = @"rPhonenumber";
 			 public static string RSaveDate = @"rSaveDate";
+			 public static string RDate = @"rDate";
+			 public static string RDuration = @"rDuration";
+			 public static string RStatus = @"rStatus";
 						
 		}
 		#endregion
