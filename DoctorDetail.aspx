@@ -175,9 +175,6 @@
                                             </a></li>
                                         </ul>
 
-
-
-
                                         <%--<ul class="social_icons sotialnet">
                                             <li><a href="https://telegram.me/<%#Eval(" dTelegram") %>"
                                                 target="_blank" title='تلگرام: <%#Eval("dTelegram") %>'>
@@ -235,11 +232,13 @@
                     </asp:SqlDataSource>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="large_divider clearfix"></div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="tab-style3">
@@ -252,7 +251,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="Additional-info-tab" data-toggle="tab"
                                     href="#Additional-info" role="tab" aria-controls="Additional-info"
-                                    aria-selected="true">موقعیت</a>
+                                    aria-selected="true"> رزرو نوبت </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews"
@@ -268,7 +267,7 @@
                                     </div>
                             </div>--%>
 
-                            <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
+                          <%--  <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
                                 aria-labelledby="Additional-info-tab">
                                 <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor" CssClass="w-100">
                                     <ItemTemplate>
@@ -277,17 +276,12 @@
                                             src='https://maps.google.com/maps?q=<%#Eval("dLat") %>, <%#Eval("dLong") %> &hl=es;z=14&amp;output=embed'></iframe>
                                     </ItemTemplate>
                                 </asp:FormView>
-                            </div>
-                            <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
-                            </div>
+                            </div>--%>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+                             <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
+                                aria-labelledby="Additional-info-tab">
 
-
-            <div class="doctor-appointment" id="appointment">
+      <div class="doctor-appointment" id="appointment">
                 <div class="apt-header">
                     <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
                     <span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>
@@ -374,7 +368,21 @@
                 }
             </script>
 
-        </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
+                                در حال حاضر نظری برای این پزشک ثبت نشده است.
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+      
+      
 
 
         <div class="row">
@@ -500,5 +508,7 @@
                 </div>
             </div>
         </div>
+    </div>  
+
     </div>
 </asp:Content>
