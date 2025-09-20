@@ -37,6 +37,9 @@
     line-height:1;
     margin-bottom:10px;
 }
+.product-meta tr td div {
+    margin-top: 15px;
+}
 .btn-fill-out {
     background-color: #FF324D;
 }
@@ -87,8 +90,9 @@
     display: block !important;
 }
 .sotialnet li {
-    display: block;
-    padding-top:6px;
+    display: inline-block;
+    padding-top:10px;
+    padding-left:6px;
 }
 .sotialnet i {
     font-size: 30px;
@@ -317,28 +321,166 @@
     background: #aaa;
     cursor: no-drop;   
 }
+/* appointment */
 
-/*.doctor-appointment {
+.doctor-appointment {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    font-family: Vazirmatn, sans-serif;
 }
-    .doctor-appointment .tbl-appointments td {
-        width: 10%;
-        cursor: pointer;
-        text-align:center;
-        color:#3b3b3d;
-    }
-        .doctor-appointment .tbl-appointments td > div {
-            border: solid 1px #888;
-            margin: 5px;
-            padding: 10px 5px;
-            cursor: pointer;
-        }
 
-    .doctor-appointment .product-price i {
-        font-size: 20px;
-        color: #fac053;
+.apt-header h6 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.apt-header span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.days-wrapper {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 30px;
+    scrollbar-width: none;
+}
+
+    .days-wrapper::-webkit-scrollbar {
+        display: none;
     }
-.doctor-appointment .apt-sub {
-    font-size: 16px;
-    padding: 15px 5px;
-    color: #FF324D;
-}*/
+
+.day-item {
+    display: block;
+    min-width: 80px;
+    text-align: center;
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 8px 5px;
+    color: #333;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+    .day-item:hover {
+        background: #e9f5ff;
+        border-color: #007bff;
+    }
+
+    .day-item.active {
+        background: #e9f5ff;
+        border-color: #007bff;
+        box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+    }
+
+.day-name {
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.day-date {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.times-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.times-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .times-header .legend {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+.legend .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 6px;
+}
+
+.dot.available {
+    background: #007bff;
+}
+
+.dot.reserved {
+    background: #bbb;
+}
+
+.time-slot {
+    padding: 8px 15px;
+    background: #f0f8ff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #007bff;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .time-slot:hover {
+        background: #007bff;
+        color: white;
+    }
+
+    .time-slot.reserved {
+        background: #f2f2f2;
+        color: #aaa;
+        border-color: #ddd;
+        cursor: not-allowed;
+    }
+
+/* Days horizontal nav */
+.days-container {
+    position: relative;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+    .nav-btn:hover {
+        color: #333;
+        border-color: #ccc;
+    }
+
+    .nav-btn.prev {
+        right: -10px;
+    }
+
+    .nav-btn.next {
+        left: -10px;
+    }

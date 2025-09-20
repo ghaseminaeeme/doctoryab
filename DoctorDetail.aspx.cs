@@ -37,9 +37,171 @@ namespace DoctorYab
                 Page.Header.Controls.Add(metaKey2);
 
                 LoadDaysAndFirstTimes();
+
             }
         }
 
+        private void LoadDaysAndFirstTimes()
+        {
+            int doctorId = int.Parse(Request.QueryString["did"]);
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DbWebSiteConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.selectAppointment_v1", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@doctorId", doctorId);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    // Save appointments in ViewState
+                    ViewState["Appointments"] = ds;
+                    Page.ClientScript.RegisterHiddenField("hasAppointments", "true");
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        string firstDate = ds.Tables[0].Rows[0]["AppointmentDate"].ToString();
+                        ViewState["SelectedDate"] = firstDate;
+                        HiddenSelectedDate.Value = firstDate;
+
+                        rptDays.DataSource = ds.Tables[0];
+                        rptDays.DataBind();
+
+                        UpdateSelectedDateHeader(firstDate);
+                        BindTimesForDate(firstDate);
+                    }
+                    else
+                    {
+                        rptDays.DataSource = ds.Tables[0];
+                        rptDays.DataBind();
+                    }
+                }
+            }
+        }
+
+        protected void rptDays_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "SelectDay")
+            {
+                string selectedDate = e.CommandArgument.ToString();
+                ViewState["SelectedDate"] = selectedDate;
+                HiddenSelectedDate.Value = selectedDate;
+
+                // update header text
+                UpdateSelectedDateHeader(selectedDate);
+
+                // bind times for that date
+                BindTimesForDate(selectedDate);
+
+                // update only the times panel
+                upTimes.Update();
+
+                // also rebind days so CSS active class updates
+                if (ViewState["Appointments"] is DataSet ds)
+                {
+                    rptDays.DataSource = ds.Tables[0];
+                    rptDays.DataBind();
+                    upMain.Update();
+                }
+            }
+        }
+
+        private void BindTimesForDate(string selectedDate)
+        {
+            if (ViewState["Appointments"] == null)
+            {
+                LoadDaysAndFirstTimes(); // reload if ViewState lost
+            }
+
+            if (ViewState["Appointments"] is DataSet ds)
+            {
+                DataTable allTimes = ds.Tables[1]; // Table 1 = times
+                DataView dv = new DataView(allTimes);
+                dv.RowFilter = $"AppointmentDate = '{selectedDate}'";
+
+                rptTimes.DataSource = dv;
+                rptTimes.DataBind();
+            }
+        }
+
+        private void UpdateSelectedDateHeader(string gregorianDate)
+        {
+            try
+            {
+                if (DateTime.TryParse(gregorianDate, out DateTime date))
+                {
+                    string dayName = ConvertToPersianDay(date.DayOfWeek.ToString());
+                    string persianDate = ConvertToPersianDate(gregorianDate);
+                    litSelectedDate.Text = dayName + " - " + persianDate;
+                }
+            }
+            catch { }
+        }
+
+        public static string ConvertToPersianDate(string gregorianDate)
+        {
+            if (DateTime.TryParse(gregorianDate, out DateTime date))
+            {
+                PersianCalendar pc = new PersianCalendar();
+                return $"{pc.GetYear(date):0000}/{pc.GetMonth(date):00}/{pc.GetDayOfMonth(date):00}";
+            }
+            return gregorianDate;
+        }
+
+        public static string ConvertToPersianDay(string englishDay)
+        {
+            switch (englishDay.ToLower())
+            {
+                case "saturday": return "شنبه";
+                case "sunday": return "یکشنبه";
+                case "monday": return "دوشنبه";
+                case "tuesday": return "سه‌شنبه";
+                case "wednesday": return "چهارشنبه";
+                case "thursday": return "پنج‌شنبه";
+                case "friday": return "جمعه";
+                default: return englishDay;
+            }
+        }
+
+        protected void rptDays_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var lnk = e.Item.FindControl("lnkDay") as LinkButton;
+                string selectedDate = ViewState["SelectedDate"] as string;
+                string currentDate = DataBinder.Eval(e.Item.DataItem, "AppointmentDate").ToString();
+
+                if (lnk != null && !string.IsNullOrEmpty(selectedDate) && currentDate == selectedDate)
+                {
+                    lnk.CssClass += " active";
+                }
+            }
+        }
+
+        protected void rptDays_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton lnkDay = e.Item.FindControl("lnkDay") as LinkButton;
+                if (lnkDay != null)
+                {
+                    ScriptManager.GetCurrent(Page).RegisterAsyncPostBackControl(lnkDay);
+                }
+            }
+        }
+
+        protected string SelectedDay
+        {
+            get => ViewState["SelectedDate"]?.ToString() ?? "";
+            set => ViewState["SelectedDate"] = value;
+        }
+
+
+
+
+        /*
         private void LoadDaysAndFirstTimes()
         {
             int doctorId = int.Parse(Request.QueryString["did"]);
@@ -183,6 +345,19 @@ namespace DoctorYab
             }
         }
 
+        protected void rptDays_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton lnkDay = e.Item.FindControl("lnkDay") as LinkButton;
+                if (lnkDay != null)
+                {
+                    ScriptManager.GetCurrent(Page).RegisterAsyncPostBackControl(lnkDay);
+                }
+            }
+        }
+
+
         protected string SelectedDay
         {
             get
@@ -257,5 +432,8 @@ namespace DoctorYab
 
         //    }
         //}
+
+
+        */
     }
 }
