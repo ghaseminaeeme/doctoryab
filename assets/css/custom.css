@@ -341,7 +341,7 @@
     font-size: 0.9rem;
     color: #777;
 }
-
+.apt-header i {padding-left:6px;}
 .days-wrapper {
     display: flex;
     gap: 10px;

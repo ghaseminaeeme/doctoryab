@@ -351,8 +351,7 @@
                                                             UseSubmitBehavior="false"
                                                             CausesValidation="false"
                                                             CommandName="Reserve"
-                                                           CommandArgument='<%# Eval("AppointmentDate") + "|" + ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") %>'
-                                                            >
+                                                            CommandArgument='<%# Eval("AppointmentDate") + "|" + ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") %>'>
                                                             <%# Eval("AppointmentTime") != DBNull.Value ? ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") : "" %>
 
                                                         </asp:LinkButton>
@@ -382,10 +381,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
 
             <div class="row">
@@ -430,7 +425,7 @@
 
                                     </ul>
                             </div>--%>
-                <div class="review_form field_form">
+                <div class="review_form field_form col-md-12">
                     <h5>ارسال نظرات</h5>
                     <div class="row mt-3">
                         <div class="form-group col-12">
