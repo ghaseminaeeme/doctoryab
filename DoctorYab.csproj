@@ -2973,6 +2973,8 @@
     <Compile Include="Generate\TblAdvertiseController.cs" />
     <Compile Include="Generate\TblAppointment.cs" />
     <Compile Include="Generate\TblAppointmentController.cs" />
+    <Compile Include="Generate\TblAppointmentLog.cs" />
+    <Compile Include="Generate\TblAppointmentLogController.cs" />
     <Compile Include="Generate\TblBanner.cs" />
     <Compile Include="Generate\TblBannerController.cs" />
     <Compile Include="Generate\TblBlog.cs" />

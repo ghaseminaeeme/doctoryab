@@ -31,6 +31,8 @@ namespace DalWebSite
         
 		public static readonly string TblAppointment = @"TblAppointment";
         
+		public static readonly string TblAppointmentLog = @"TblAppointmentLog";
+        
 		public static readonly string TblBanner = @"TblBanner";
         
 		public static readonly string TblBlog = @"TblBlog";
@@ -94,6 +96,11 @@ namespace DalWebSite
 		public static TableSchema.Table TblAppointment
 		{
             get { return DataService.GetSchema("TblAppointment", "DbWebSiteConnectionString"); }
+		}
+        
+		public static TableSchema.Table TblAppointmentLog
+		{
+            get { return DataService.GetSchema("TblAppointmentLog", "DbWebSiteConnectionString"); }
 		}
         
 		public static TableSchema.Table TblBanner

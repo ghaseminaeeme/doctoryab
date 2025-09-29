@@ -1,4 +1,5 @@
 ﻿using DalWebSite;
+using SubSonic;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -198,8 +199,18 @@ namespace DoctorYab
             set => ViewState["SelectedDate"] = value;
         }
 
+        protected void rptTimes_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Reserve")
+            {
+                string[] args = e.CommandArgument.ToString().Split('|');
+                string selectedDate = args[0];
+                string selectedTime = args[1];
+                string doctorId = Request.QueryString["did"];
 
-
+                Response.Redirect($"/Reserve.aspx?did={doctorId}&date={selectedDate}&time={selectedTime}", false);
+            }
+        }
 
         /*
         private void LoadDaysAndFirstTimes()
@@ -370,56 +381,7 @@ namespace DoctorYab
             }
         }
 
-        protected void btnReserve_Click(object sender, EventArgs e)
-        {
-            //err.Visible = false;
-            //try
-            //{
-            //    string rawTime = hfSelectedTime.Value; //lbTime.Text;
-            //    DateTime selectedDateTime = Convert.ToDateTime(hfSelectedTime.Value);
-            //    string selectedTime = selectedDateTime.ToString("HH:mm"); // match format of RTime
-
-
-            //    int count = new Select("COUNT(*)")
-            //                   .From(TblReserve.Schema)
-            //                   .Where(TblReserve.Columns.RTime).IsEqualTo(selectedTime)
-            //                   .And(TblReserve.Columns.RDoctorId).IsEqualTo(doctorID)
-            //                   .And(TblReserve.Columns.RDatetime).IsEqualTo(selectedDateTime)
-            //                   .ExecuteScalar<int>();
-
-
-            //    if (count > 0)
-            //    {
-            //        err.Text = "متاسفانه این نوبت قبلا رزرو شده است.";
-            //        err.Visible = true;
-            //    }
-            //    else
-            //    {
-            //        string trackingCode = doctorID.ToString() + cc.RandomNumber(4).ToString();
-            //        TblReserve _TblReserve = new TblReserve();
-            //        _TblReserve.RDatetime = DateTime.Parse(hfSelectedTime.Value);
-            //        _TblReserve.RDoctorId = doctorID;
-            //        _TblReserve.RName = txtName.Text;
-            //        _TblReserve.RPhonenumber = txtTel.Text;
-            //        _TblReserve.RSaveDate = DateTime.Now;
-            //        _TblReserve.RTime = selectedTime;
-            //        _TblReserve.RTrackingCode = trackingCode;
-            //        _TblReserve.RStatus = 0;
-            //        _TblReserve.Save();
-            //        Response.Cookies["trackingCode"].Value = trackingCode;
-
-            //        // ✅ Safe redirect without thread abort
-            //        Response.Redirect("/Reserve.aspx", false);
-            //        Context.ApplicationInstance.CompleteRequest();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    string error = ex.Message;
-            //    err.Text = "متاسفانه خطایی پیش آمد، لطفا دوباره سعی کنید.";
-            //    err.Visible = true;
-            //}
-        }
+     
 
         ClassControl _ClassControl = new ClassControl();
         //protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)

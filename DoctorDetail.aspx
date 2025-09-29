@@ -251,7 +251,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="Additional-info-tab" data-toggle="tab"
                                     href="#Additional-info" role="tab" aria-controls="Additional-info"
-                                    aria-selected="true"> رزرو نوبت </a>
+                                    aria-selected="true">رزرو نوبت </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews"
@@ -267,7 +267,7 @@
                                     </div>
                             </div>--%>
 
-                          <%--  <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
+                            <%--  <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
                                 aria-labelledby="Additional-info-tab">
                                 <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor" CssClass="w-100">
                                     <ItemTemplate>
@@ -278,36 +278,36 @@
                                 </asp:FormView>
                             </div>--%>
 
-                             <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
+                            <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
                                 aria-labelledby="Additional-info-tab">
 
-      <div class="doctor-appointment" id="appointment">
-                <div class="apt-header">
-                    <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
-                    <span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>
-                </div>
+                                <div class="doctor-appointment" id="appointment">
+                                    <div class="apt-header">
+                                        <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
+                                        <span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>
+                                    </div>
 
-                <!-- Days UpdatePanel -->
-                <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
-                    <ContentTemplate>
-                        <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
-                        <!-- Date selector -->
-                        <div class="days-container">
-                            <button type="button" class="nav-btn prev" onclick="scrollDays(-1)" aria-label="روزهای قبلی">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                            <div class="days-wrapper" id="daysCarousel">
-                                <asp:Repeater ID="rptDays" runat="server"
-                                    OnItemCommand="rptDays_ItemCommand"
-                                    OnItemDataBound="rptDays_ItemDataBound"
-                                    OnItemCreated="rptDays_ItemCreated">
-                                    <ItemTemplate>
-                                        <asp:LinkButton runat="server" ID="lnkDay"
-                                            CommandName="SelectDay"
-                                            CssClass="day-item"
-                                            UseSubmitBehavior="false"
-                                            CommandArgument='<%# Eval("AppointmentDate") %>'
-                                            CausesValidation="false">
+                                    <!-- Days UpdatePanel -->
+                                    <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                                        <ContentTemplate>
+                                            <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
+                                            <!-- Date selector -->
+                                            <div class="days-container">
+                                                <button type="button" class="nav-btn prev" onclick="scrollDays(-1)" aria-label="روزهای قبلی">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </button>
+                                                <div class="days-wrapper" id="daysCarousel">
+                                                    <asp:Repeater ID="rptDays" runat="server"
+                                                        OnItemCommand="rptDays_ItemCommand"
+                                                        OnItemDataBound="rptDays_ItemDataBound"
+                                                        OnItemCreated="rptDays_ItemCreated">
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton runat="server" ID="lnkDay"
+                                                                CommandName="SelectDay"
+                                                                CssClass="day-item"
+                                                                UseSubmitBehavior="false"
+                                                                CommandArgument='<%# Eval("AppointmentDate") %>'
+                                                                CausesValidation="false">
                                 <div>
                                     <span class="day-name">
                                         <%# ConvertToPersianDay(DateTime.Parse(Eval("AppointmentDate").ToString()).DayOfWeek.ToString()) %>
@@ -316,57 +316,60 @@
                                         <%# ConvertToPersianDate(Eval("AppointmentDate").ToString()) %>
                                     </span>
                                 </div>
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
-                            </div>
-                            <button type="button" class="nav-btn next" onclick="scrollDays(1)" aria-label="روزهای بعدی">
-                                <i class="fa fa-angle-left"></i>
-                            </button>
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                                                            </asp:LinkButton>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                    <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
+                                                </div>
+                                                <button type="button" class="nav-btn next" onclick="scrollDays(1)" aria-label="روزهای بعدی">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </button>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
 
-                <!-- Times UpdatePanel -->
-                <asp:UpdatePanel ID="upTimes" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
-                        <div class="times-header">
-                            <div>
-                                <i class="fa fa-clock-o"></i>
-                                <span>نوبت‌های روز: </span>
-                                <asp:Literal ID="litSelectedDate" runat="server" />
-                            </div>
-                            <div class="legend">
-                                <span><span class="dot available"></span>قابل رزرو</span>
-                                <span><span class="dot reserved"></span>رزرو شده</span>
-                            </div>
-                        </div>
-                        <div class="times-wrapper">
-                            <asp:Repeater ID="rptTimes" runat="server">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="btnReserve" runat="server"
-                                        
-                                        CssClass='<%# Convert.ToBoolean(Eval("IsReserved")) ? "time-slot reserved" : "time-slot" %>'
-                                        Enabled='<%# !Convert.ToBoolean(Eval("IsReserved")) %>'
-                                        UseSubmitBehavior="false"
-                                        CausesValidation="false">
-                            <%# Eval("AppointmentTime") != DBNull.Value ? ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") : "" %>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
+                                    <!-- Times UpdatePanel -->
+                                    <asp:UpdatePanel ID="upTimes" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <div class="times-header">
+                                                <div>
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <span>نوبت‌های روز: </span>
+                                                    <asp:Literal ID="litSelectedDate" runat="server" />
+                                                </div>
+                                                <div class="legend">
+                                                    <span><span class="dot available"></span>قابل رزرو</span>
+                                                    <span><span class="dot reserved"></span>رزرو شده</span>
+                                                </div>
+                                            </div>
+                                            <div class="times-wrapper">
+                                                <asp:Repeater ID="rptTimes" runat="server" OnItemCommand="rptTimes_ItemCommand">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btnReserve" runat="server"
+                                                            CssClass='<%# Convert.ToBoolean(Eval("IsReserved")) ? "time-slot reserved" : "time-slot" %>'
+                                                            Enabled='<%# !Convert.ToBoolean(Eval("IsReserved")) %>'
+                                                            UseSubmitBehavior="false"
+                                                            CausesValidation="false"
+                                                            CommandName="Reserve"
+                                                           CommandArgument='<%# Eval("AppointmentDate") + "|" + ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") %>'
+                                                            >
+                                                            <%# Eval("AppointmentTime") != DBNull.Value ? ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") : "" %>
 
-            <script>
-                function scrollDays(direction) {
-                    var el = document.getElementById('daysCarousel');
-                    if (!el) return;
-                    el.scrollBy({ left: direction * 180, behavior: 'smooth' });
-                }
-            </script>
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
+
+                                <script>
+                                    function scrollDays(direction) {
+                                        var el = document.getElementById('daysCarousel');
+                                        if (!el) return;
+                                        el.scrollBy({ left: direction * 180, behavior: 'smooth' });
+                                    }
+                                </script>
 
 
                             </div>
@@ -381,19 +384,19 @@
             </div>
 
 
-      
-      
 
 
-        <div class="row">
 
-            <div class="col-12">
-                <div class="small_divider"></div>
-                <div class="divider"></div>
-                <div class="medium_divider"></div>
-            </div>
 
-            <%--<div class="comments">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="small_divider"></div>
+                    <div class="divider"></div>
+                    <div class="medium_divider"></div>
+                </div>
+
+                <%--<div class="comments">
                                     <asp:FormView ID="FormView5" runat="server" DataSourceID="SqlDoctor"
                                         CssClass="w-100">
                                         <ItemTemplate>
@@ -427,88 +430,88 @@
 
                                     </ul>
                             </div>--%>
-            <div class="review_form field_form">
-                <h5>ارسال نظرات</h5>
-                <div class="row mt-3">
-                    <div class="form-group col-12">
-                        <asp:TextBox ID="TxtDes" runat="server" TextMode="MultiLine"
-                            placeholder="نظر شما *" class="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <asp:TextBox ID="TxtName" runat="server" placeholder="نام خود را وارد کنید *"
-                            class="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <asp:TextBox ID="TxtEmail" runat="server"
-                            placeholder="ایمیل یا تلفن خود را وارد کنید *" class="form-control">
-                        </asp:TextBox>
-                    </div>
+                <div class="review_form field_form">
+                    <h5>ارسال نظرات</h5>
+                    <div class="row mt-3">
+                        <div class="form-group col-12">
+                            <asp:TextBox ID="TxtDes" runat="server" TextMode="MultiLine"
+                                placeholder="نظر شما *" class="form-control"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <asp:TextBox ID="TxtName" runat="server" placeholder="نام خود را وارد کنید *"
+                                class="form-control"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <asp:TextBox ID="TxtEmail" runat="server"
+                                placeholder="ایمیل یا تلفن خود را وارد کنید *" class="form-control">
+                            </asp:TextBox>
+                        </div>
 
-                    <div class="form-group col-12">
-                        <asp:Button ID="Button1" runat="server" Text="ارسال نظر"
-                            class="btn btn-fill-out" />
+                        <div class="form-group col-12">
+                            <asp:Button ID="Button1" runat="server" Text="ارسال نظر"
+                                class="btn btn-fill-out" />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="small_divider"></div>
-                <div class="divider"></div>
-                <div class="medium_divider"></div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-12">
-                <div class="heading_s1">
-                    <h3>سایر پزشکان</h3>
+            <div class="row">
+                <div class="col-12">
+                    <div class="small_divider"></div>
+                    <div class="divider"></div>
+                    <div class="medium_divider"></div>
                 </div>
-                <div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20"
-                    data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
-                    <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlRelated">
-                        <ItemTemplate>
-                            <div class="item">
-                                <div class="product">
-                                    <div class="product_img">
-                                        <a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'>
-                                            <img src='<%#Eval("dImg") %>' alt="<%#Eval(" dName") %>">
-                                        </a>
-                                        &nbsp;&nbsp;
-                                    </div>
-                                    <div class="product_info">
-                                        <h2 class="product_title"><a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'>
-                                            <%#Eval("dName") %>
-                                        </a></h2>
-                                        <div class="product_price">
-                                            <span class="price">
-                                                <%#Eval("bSubject") %>
-                                            </span>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading_s1">
+                        <h3>سایر پزشکان</h3>
+                    </div>
+                    <div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20"
+                        data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+                        <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlRelated">
+                            <ItemTemplate>
+                                <div class="item">
+                                    <div class="product">
+                                        <div class="product_img">
+                                            <a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'>
+                                                <img src='<%#Eval("dImg") %>' alt="<%#Eval(" dName") %>">
+                                            </a>
+                                            &nbsp;&nbsp;
                                         </div>
-                                        <div class="rating_wrap">
-                                            <%#Eval("cName") %>
+                                        <div class="product_info">
+                                            <h2 class="product_title"><a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'>
+                                                <%#Eval("dName") %>
+                                            </a></h2>
+                                            <div class="product_price">
+                                                <span class="price">
+                                                    <%#Eval("bSubject") %>
+                                                </span>
+                                            </div>
+                                            <div class="rating_wrap">
+                                                <%#Eval("cName") %>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <asp:SqlDataSource ID="SqlRelated" runat="server"
-                        ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>" SelectCommand="SELECT top 4 dbo.TblDoctors.id, dbo.TblDoctors.dName, dbo.TblDoctors.dImg, dbo.TblBranch.bSubject, dbo.TblCity.cName, dbo.TblDoctors.dBranchFk 
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <asp:SqlDataSource ID="SqlRelated" runat="server"
+                            ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>" SelectCommand="SELECT top 4 dbo.TblDoctors.id, dbo.TblDoctors.dName, dbo.TblDoctors.dImg, dbo.TblBranch.bSubject, dbo.TblCity.cName, dbo.TblDoctors.dBranchFk 
                             FROM dbo.TblDoctors INNER JOIN dbo.TblBranch ON dbo.TblDoctors.dBranchFk = dbo.TblBranch.id 
                             INNER JOIN dbo.TblCity ON dbo.TblDoctors.dCityFk = dbo.TblCity.id 
                             WHERE (dbo.TblDoctors.dBranchFk = (select dBranchFk FROM TblDoctors where id =  @id)) AND 
                             (dbo.TblDoctors.dCityFk = (select dCityFk FROM TblDoctors where id =  @id))">
-                        <SelectParameters>
-                            <asp:QueryStringParameter Name="id" QueryStringField="did" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
+                            <SelectParameters>
+                                <asp:QueryStringParameter Name="id" QueryStringField="did" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>  
 
     </div>
 </asp:Content>
