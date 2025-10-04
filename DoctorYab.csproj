@@ -2410,6 +2410,7 @@
     <Content Include="js\chosen.proto.min.js" />
     <Content Include="js\jquery-1.6.4.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="panel\appointmentConfig.aspx" />
     <Content Include="panel\appointments.aspx" />
     <Content Include="panel\assets\css\bootstrap.min.css" />
     <Content Include="panel\assets\css\calendar\aqua\active-bg.gif" />
@@ -3011,6 +3012,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="panel\appointmentConfig.aspx.cs">
+      <DependentUpon>appointmentConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel\appointmentConfig.aspx.designer.cs">
+      <DependentUpon>appointmentConfig.aspx</DependentUpon>
     </Compile>
     <Compile Include="panel\appointments.aspx.cs">
       <DependentUpon>appointments.aspx</DependentUpon>

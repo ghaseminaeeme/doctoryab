@@ -31,7 +31,7 @@ namespace DoctorYab.panel
                         if (_TblDoctor.DPassword == ClassControl.encryptString(TxtPass.Text))
                         {
                             Session["doctorId"] = _TblDoctor.Id;
-                            Response.Redirect("configAppointment.aspx");
+                            Response.Redirect("reserves.aspx");
                         }
                         else
                         {

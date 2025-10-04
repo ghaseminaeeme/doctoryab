@@ -9,6 +9,7 @@ using SubSonic;
 using System.Data;
 using website;
 using System.Globalization;
+using System.Web.UI.HtmlControls;
 
 namespace DoctorYab
 {
@@ -19,9 +20,21 @@ namespace DoctorYab
         {
             if (!IsPostBack)
             {
+
+
                 //  string dateStr =cc.PersianDate_10(Request.QueryString["date"]);
                 string dateStr = Request.QueryString["date"];
                 string timeStr = Request.QueryString["time"];
+                TblDoctor _TblDoctor = new TblDoctor(int.Parse(Request.QueryString["did"]));
+                string doctorName = _TblDoctor.DName;
+
+
+                HtmlHead head = Page.Header;
+                HtmlTitle title = new HtmlTitle();
+                title.Text = "دکتریاب ایران | رزرو نوبت از  " + doctorName;
+                head.Controls.Add(title);
+
+
 
                 if (DateTime.TryParse(dateStr, out DateTime gregorianDate))
                 {
@@ -39,7 +52,8 @@ namespace DoctorYab
                 }
 
                 lbTime.Text = timeStr;
-                //lbDate.Text = dateStr;
+                btnDoctor.PostBackUrl = "DoctorDetail.aspx?did=" + Request.QueryString["did"];
+                btnDoctor.Text = doctorName;
             }
         }
 

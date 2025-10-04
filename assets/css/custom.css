@@ -577,3 +577,6 @@ span, p, input {
         padding: 0 5px;
     }
 }
+.reserve-link {
+    color: #FF324D;
+}

@@ -47,6 +47,7 @@
                         <h2>رزرو نوبت برای تاریخ 
                             <asp:Label ID="lbDate" runat="server" Text=""></asp:Label>، ساعت 
                             <asp:Label ID="lbTime" runat="server" Text=""></asp:Label>
+                            <asp:LinkButton ID="btnDoctor" runat="server" CssClass="reserve-link"></asp:LinkButton>
                         </h2>
                     </div>
                     <p class="leads txt-stronger">لطفا نام و تلفن تماس خود را در فرم زیر وارد کنید و روی دکمه رزرو نوبت کلیک کنید.</p>

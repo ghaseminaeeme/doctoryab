@@ -67,11 +67,10 @@
 
                                     <ul class="list-unstyled sidebar-nav mb-0">
                                         <li class="navbar-item"><a href="/" class="navbar-link"><i class="ri-home-2-line align-middle navbar-icon"></i> صفحه اصلی دکتریاب </a></li>
-                                        <li class="navbar-item"><a href="configAppointment.aspx" class="navbar-link"><i class="ri-calendar-check-line align-middle navbar-icon"></i>نوبت‌دهی</a></li>
-                                        <li class="navbar-item"><a href="appointments.aspx" class="navbar-link"><i class="ri-timer-line align-middle navbar-icon"></i>نوبت های ثبت شده </a></li>
+                                        <li class="navbar-item"><a href="appointmentConfig.aspx" class="navbar-link"><i class="ri-calendar-check-line align-middle navbar-icon"></i>نوبت‌دهی</a></li>
                                         <li class="navbar-item"><a href="reserves.aspx" class="navbar-link"><i class="ri-pages-line align-middle navbar-icon"></i>رزروها</a></li>
                                         <li class="navbar-item">                                           
-                                            <asp:LinkButton ID="btnLogout" runat="server" class="navbar-link" OnClick="btnLogout_Click"> خروج <i class="ri-pages-line align-middle navbar-icon"></asp:LinkButton></li>
+                                            <asp:LinkButton ID="btnLogout" runat="server" class="navbar-link" OnClick="btnLogout_Click"> خروج <i class="ri-door-closed-fill align-middle navbar-icon"></i></asp:LinkButton></li>
 
                                     </ul>
                                 </div>
