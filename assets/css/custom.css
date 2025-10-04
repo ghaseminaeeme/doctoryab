@@ -1,4 +1,10 @@
-﻿
+﻿body {
+    font-family: IranYekan;
+}
+h1, h2, h3, h4, h5, h6,
+span, p, input {
+    font-family: IranYekan;
+}
 .dark_skin .logo_dark, .light_skin .logo_light {
     width: 182px;
     height: 47px;
@@ -326,7 +332,7 @@
 .doctor-appointment {
     background: #fff;
     border-radius: 12px;
-    padding: 20px;
+    padding: 20px 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     font-family: Vazirmatn, sans-serif;
 }
@@ -364,6 +370,8 @@
     color: #333;
     border: 1px solid transparent;
     transition: all 0.2s ease;
+    font-family: IranYekan;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
     .day-item:hover {
@@ -385,6 +393,7 @@
 .day-date {
     font-size: 0.8rem;
     color: #666;
+    font-weight:bold;
 }
 
 .times-wrapper {
@@ -557,4 +566,6 @@
         transform: scale(1);
     }
 }
-
+.map-container {
+    width:100%;
+}

@@ -208,12 +208,12 @@
                                 </div>
                                 <hr />
                                 <div class="cart_extra">
-                                    <div class="cart_btn">
+                                    <div class="cart_btn map-container">
                                         <h4>مسیریابی</h4>
 
-                                        <iframe width="450"
+                                        <iframe 
                                             height="250"
-                                            style="border: 0;"
+                                            style='border: 0;width:100%;'
                                             src='https://maps.google.com/maps?q=<%#Eval("dLat") %>, <%#Eval("dLong") %> &hl=es;z=14&amp;output=embed'></iframe>
                                     </div>
                                 </div>
@@ -242,12 +242,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="tab-style3">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <%-- <li class="nav-item">
+                        <%-- <ul class="nav nav-tabs" role="tablist">
+                             <li class="nav-item">
                                     <a class="nav-link active" id="Description-tab" data-toggle="tab"
                                         href="#Description" role="tab" aria-controls="Description"
                                         aria-selected="true">ویدئو</a>
-                                    </li>--%>
+                                    </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="Additional-info-tab" data-toggle="tab"
                                     href="#Additional-info" role="tab" aria-controls="Additional-info"
@@ -257,7 +257,7 @@
                                 <a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews"
                                     role="tab" aria-controls="Reviews" aria-selected="false">نظرات </a>
                             </li>
-                        </ul>
+                        </ul>--%>
                         <div class="tab-content shop_info_tab">
                             <%-- <div class="tab-pane fade show" id="Description" role="tabpanel"
                                     aria-labelledby="Description-tab">
@@ -391,40 +391,42 @@
                     <div class="medium_divider"></div>
                 </div>
 
-                <%--<div class="comments">
-                                    <asp:FormView ID="FormView5" runat="server" DataSourceID="SqlDoctor"
-                                        CssClass="w-100">
-                                        <ItemTemplate>
-                                            <h5 class="product_tab_title">نظرات در مورد <span>
-                                                    <%#Eval("dName") %>
-                                                </span></h5>
-                                        </ItemTemplate>
-                                    </asp:FormView>
-                                    <ul class="list_none comment_list mt-4">
-                                        <li>
-                                            <div class="comment_img">
-                                                <img src="assets/images/user.jpg" alt="user1" />
-                                            </div>
-                                            <div class="comment_block">
-                                                <div class="rating_wrap">
-                                                    <div class="rating">
-                                                        <div class="product_rate" style="width: 80%"></div>
-                                                    </div>
-                                                </div>
-                                                <p class="customer_meta">
-                                                    <span class="review_author">ستاره جمشیدی</span>
-                                                    <span class="comment-date">5 اسفند 1399</span>
-                                                </p>
-                                                <div class="description">
-                                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+<%--                <div class="comments">
+                    <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor"
+                        CssClass="w-100">
+                        <ItemTemplate>
+                            <h5 class="product_tab_title">نظرات در مورد <span>
+                                <%#Eval("dName") %>
+                            </span></h5>
+                        </ItemTemplate>
+                    </asp:FormView>
+                    <ul class="list_none comment_list mt-4">
+                        <li>
+                            <div class="comment_img">
+                                <img src="assets/images/user.jpg" alt="user1" />
+                            </div>
+                            <div class="comment_block">
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <p class="customer_meta">
+                                    <span class="review_author">ستاره جمشیدی</span>
+                                    <span class="comment-date">5 اسفند 1399</span>
+                                </p>
+                                <div class="description">
+                                    <p>
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                                                         استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                                                        در ستون و سطرآنچنان که لازم است</p>
-                                                </div>
-                                            </div>
-                                        </li>
+                                                        در ستون و سطرآنچنان که لازم است
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
 
-                                    </ul>
-                            </div>--%>
+                    </ul>
+                </div>--%>
                 <div class="review_form field_form col-md-12">
                     <h5>ارسال نظرات</h5>
                     <div class="row mt-3">
@@ -506,6 +508,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
