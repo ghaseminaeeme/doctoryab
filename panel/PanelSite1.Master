@@ -35,8 +35,8 @@
             <div class="container-fluid">
                 <!-- Logo container-->
                 <a class="logo" href="/">
-                    <img src="/assets/images/doctoryab_logo.png" height="24" class="logo-light-mode" alt="دکتریاب ایران"/>
-                    <img src="/assets/images/doctoryab_logo.png" height="24" class="logo-dark-mode" alt="دکتریاب ایران"/>
+                    <img src="/assets/images/doctoryab_logo.png" height="24" class="logo-light-mode" alt="دکتریاب ایران" />
+                    <img src="/assets/images/doctoryab_logo.png" height="24" class="logo-dark-mode" alt="دکتریاب ایران" />
                 </a>
                 <!-- Logo End -->
 
@@ -61,15 +61,17 @@
 
                                     <div class="text-center avatar-profile margin-nagative mt-n5 position-relative pb-4 border-bottom">
                                         <img src='<%#Eval("dImg") %>' class="rounded-circle shadow-md avatar avatar-md-md" alt="">
-                                        <h5 class="mt-3 mb-1"><%#Eval("dName") %></h5>
+                                        <a href='/doctorDetail.aspx?did=<%#Eval("id") %>'>
+                                            <h5 class="mt-3 mb-1"><%#Eval("dName") %></h5>
+                                        </a>
                                         <p class="text-muted mb-0"><%#Eval("dWorkTime") %> </p>
                                     </div>
 
                                     <ul class="list-unstyled sidebar-nav mb-0">
-                                        <li class="navbar-item"><a href="/" class="navbar-link"><i class="ri-home-2-line align-middle navbar-icon"></i> صفحه اصلی دکتریاب </a></li>
+                                        <li class="navbar-item"><a href="/" class="navbar-link"><i class="ri-home-2-line align-middle navbar-icon"></i>صفحه اصلی دکتریاب </a></li>
                                         <li class="navbar-item"><a href="appointmentConfig.aspx" class="navbar-link"><i class="ri-calendar-check-line align-middle navbar-icon"></i>نوبت‌دهی</a></li>
                                         <li class="navbar-item"><a href="reserves.aspx" class="navbar-link"><i class="ri-pages-line align-middle navbar-icon"></i>رزروها</a></li>
-                                        <li class="navbar-item">                                           
+                                        <li class="navbar-item">
                                             <asp:LinkButton ID="btnLogout" runat="server" class="navbar-link" OnClick="btnLogout_Click"> خروج <i class="ri-door-closed-fill align-middle navbar-icon"></i></asp:LinkButton></li>
 
                                     </ul>
