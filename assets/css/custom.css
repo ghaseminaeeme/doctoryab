@@ -569,3 +569,11 @@ span, p, input {
 .map-container {
     width:100%;
 }
+.upMain {
+    padding: 0 40px;
+}
+@media(max-width:920px) {
+    .upMain {
+        padding: 0 5px;
+    }
+}

@@ -98,6 +98,8 @@ namespace DoctorYab
                         _TblReserve.Save();
                         success.Text = "نوبت شما با موفقیت رزرو شد. کد پیگیری: " + trackingCode;
                         success.Visible = true;
+                        TxtName.Text = "";
+                        TxtTel.Text = "";
                     }
                 }
             }

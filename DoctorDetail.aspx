@@ -288,6 +288,7 @@
                                     </div>
 
                                     <!-- Days UpdatePanel -->
+                                    <div class="upMain">
                                     <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                                         <ContentTemplate>
                                             <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
@@ -327,7 +328,7 @@
                                             </div>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-
+                                        </div>
                                     <!-- Times UpdatePanel -->
                                     <asp:UpdatePanel ID="upTimes" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
