@@ -96,6 +96,24 @@ namespace DoctorYab
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDoctor;
 
         /// <summary>
+        /// lbEmpty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbEmpty;
+
+        /// <summary>
+        /// lbGuid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbGuid;
+
+        /// <summary>
         /// upMain control.
         /// </summary>
         /// <remarks>

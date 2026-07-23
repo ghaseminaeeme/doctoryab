@@ -431,6 +431,7 @@
     <Content Include="Admin\setting.aspx" />
     <Content Include="Admin\video.aspx" />
     <Content Include="Admin\WebForm1.aspx" />
+    <Content Include="appointment-guid.aspx" />
     <Content Include="Ar\About.aspx" />
     <Content Include="Ar\Contact.aspx" />
     <Content Include="Ar\Default.aspx" />
@@ -2411,7 +2412,6 @@
     <Content Include="js\jquery-1.6.4.min.js" />
     <Content Include="login.aspx" />
     <Content Include="panel\appointmentConfig.aspx" />
-    <Content Include="panel\appointments.aspx" />
     <Content Include="panel\assets\css\bootstrap.min.css" />
     <Content Include="panel\assets\css\calendar\aqua\active-bg.gif" />
     <Content Include="panel\assets\css\calendar\aqua\dark-bg.gif" />
@@ -2645,7 +2645,6 @@
     <Content Include="panel\assets\lang\calendar-tr.js" />
     <Content Include="panel\assets\lang\calendar-zh.js" />
     <Content Include="panel\assets\lang\cn_utf8.js" />
-    <Content Include="panel\configAppointment.aspx" />
     <Content Include="panel\default.aspx" />
     <Content Include="panel\reserves.aspx" />
     <Content Include="reserve.aspx" />
@@ -2823,6 +2822,13 @@
     </Compile>
     <Compile Include="Admin\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="appointment-guid.aspx.cs">
+      <DependentUpon>appointment-guid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="appointment-guid.aspx.designer.cs">
+      <DependentUpon>appointment-guid.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ar\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -3019,20 +3025,6 @@
     </Compile>
     <Compile Include="panel\appointmentConfig.aspx.designer.cs">
       <DependentUpon>appointmentConfig.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="panel\appointments.aspx.cs">
-      <DependentUpon>appointments.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="panel\appointments.aspx.designer.cs">
-      <DependentUpon>appointments.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="panel\configAppointment.aspx.cs">
-      <DependentUpon>configAppointment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="panel\configAppointment.aspx.designer.cs">
-      <DependentUpon>configAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="panel\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

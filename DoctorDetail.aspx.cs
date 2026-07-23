@@ -72,11 +72,18 @@ namespace DoctorYab
 
                         UpdateSelectedDateHeader(firstDate);
                         BindTimesForDate(firstDate);
+
+                        lbEmpty.Visible = false;
+                        lbGuid.Visible = true;
                     }
                     else
                     {
                         rptDays.DataSource = ds.Tables[0];
                         rptDays.DataBind();
+                        upMain.Visible = false;
+                        upTimes.Visible = false;
+                        lbEmpty.Visible = true;
+                        lbGuid.Visible = false;
                     }
                 }
             }

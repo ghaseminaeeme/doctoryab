@@ -25,8 +25,7 @@
                                 <li class="breadcrumb-item"><a href="Doctors.aspx?city=<%#Eval(" dCityFk")
                                             %>&branch=<%#Eval("dBranchFk") %>">پزشکان <%#Eval("bSubject") %>
                                     <%#Eval("cName") %></a></li>
-                                <li class="breadcrumb-item active"><a href="DoctorDetail.aspx?did=<%#Eval(" id")
-                                            %>"><%#Eval("dName") %></a></li>
+                                <li class="breadcrumb-item active"><a href="DoctorDetail.aspx?did=<%#Eval(" id") %>"><%#Eval("dName") %></a></li>
                             </ol>
                         </div>
                     </ItemTemplate>
@@ -211,9 +210,9 @@
                                     <div class="cart_btn map-container">
                                         <h4>مسیریابی</h4>
 
-                                        <iframe 
+                                        <iframe
                                             height="250"
-                                            style='border: 0;width:100%;'
+                                            style='border: 0; width: 100%;'
                                             src='https://maps.google.com/maps?q=<%#Eval("dLat") %>, <%#Eval("dLong") %> &hl=es;z=14&amp;output=embed'></iframe>
                                     </div>
                                 </div>
@@ -284,31 +283,34 @@
                                 <div class="doctor-appointment" id="appointment">
                                     <div class="apt-header">
                                         <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
-                                        <span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>
+
+                                        <asp:Label ID="lbEmpty" runat="server" Text="در حال حاضر نوبتی برای این پزشک ثبت نشده است." ></asp:Label>
+                                        <asp:Label ID="lbGuid" runat="server" Text="برای رزرو، روی نوبت مورد نظر خود کلیک کنید." Visible="false"></asp:Label>
+                                        <%--<span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>--%>
                                     </div>
 
                                     <!-- Days UpdatePanel -->
                                     <div class="upMain">
-                                    <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
-                                        <ContentTemplate>
-                                            <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
-                                            <!-- Date selector -->
-                                            <div class="days-container">
-                                                <button type="button" class="nav-btn prev" onclick="scrollDays(-1)" aria-label="روزهای قبلی">
-                                                    <i class="fa fa-angle-right"></i>
-                                                </button>
-                                                <div class="days-wrapper" id="daysCarousel">
-                                                    <asp:Repeater ID="rptDays" runat="server"
-                                                        OnItemCommand="rptDays_ItemCommand"
-                                                        OnItemDataBound="rptDays_ItemDataBound"
-                                                        OnItemCreated="rptDays_ItemCreated">
-                                                        <ItemTemplate>
-                                                            <asp:LinkButton runat="server" ID="lnkDay"
-                                                                CommandName="SelectDay"
-                                                                CssClass="day-item"
-                                                                UseSubmitBehavior="false"
-                                                                CommandArgument='<%# Eval("AppointmentDate") %>'
-                                                                CausesValidation="false">
+                                        <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                                            <ContentTemplate>
+                                                <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
+                                                <!-- Date selector -->
+                                                <div class="days-container">
+                                                    <button type="button" class="nav-btn prev" onclick="scrollDays(-1)" aria-label="روزهای قبلی">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </button>
+                                                    <div class="days-wrapper" id="daysCarousel">
+                                                        <asp:Repeater ID="rptDays" runat="server"
+                                                            OnItemCommand="rptDays_ItemCommand"
+                                                            OnItemDataBound="rptDays_ItemDataBound"
+                                                            OnItemCreated="rptDays_ItemCreated">
+                                                            <ItemTemplate>
+                                                                <asp:LinkButton runat="server" ID="lnkDay"
+                                                                    CommandName="SelectDay"
+                                                                    CssClass="day-item"
+                                                                    UseSubmitBehavior="false"
+                                                                    CommandArgument='<%# Eval("AppointmentDate") %>'
+                                                                    CausesValidation="false">
                                 <div>
                                     <span class="day-name">
                                         <%# ConvertToPersianDay(DateTime.Parse(Eval("AppointmentDate").ToString()).DayOfWeek.ToString()) %>
@@ -317,18 +319,19 @@
                                         <%# ConvertToPersianDate(Eval("AppointmentDate").ToString()) %>
                                     </span>
                                 </div>
-                                                            </asp:LinkButton>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                    <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
+                                                                </asp:LinkButton>
+                                                            </ItemTemplate>
+                                                            
+                                                        </asp:Repeater>
+                                                        <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
+                                                    </div>
+                                                    <button type="button" class="nav-btn next" onclick="scrollDays(1)" aria-label="روزهای بعدی">
+                                                        <i class="fa fa-angle-left"></i>
+                                                    </button>
                                                 </div>
-                                                <button type="button" class="nav-btn next" onclick="scrollDays(1)" aria-label="روزهای بعدی">
-                                                    <i class="fa fa-angle-left"></i>
-                                                </button>
-                                            </div>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                        </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
                                     <!-- Times UpdatePanel -->
                                     <asp:UpdatePanel ID="upTimes" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
@@ -392,7 +395,7 @@
                     <div class="medium_divider"></div>
                 </div>
 
-<%--                <div class="comments">
+                <%--                <div class="comments">
                     <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor"
                         CssClass="w-100">
                         <ItemTemplate>

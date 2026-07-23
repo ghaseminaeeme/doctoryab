@@ -12,7 +12,7 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <%--<script src="https://kit.fontawesome.com/yourcode.js"></script>--%>
     <link href="/fonts/web-fonts-with-css/css/fontawesome.min.css" rel="stylesheet" />
     <link href="/fonts/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
     <link href="/fonts/web-fonts-with-css/css/fa-solid.min.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
     <!--CUSTOM MAIN STYLES-->
     <link href="assets/css/custom.css?654654" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <%--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />--%>
     <link href="assets/css/persian.css?new11" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -66,7 +66,7 @@
                     <ul class="nav" id="main-menu">
                         <li>
                             <div class="user-img-div">
-                                <img src="/images/logo45.png" class="img-thumbnail" />
+                                <%--<img src="/images/logo45.png" class="img-thumbnail" />--%>
 
                                 <div class="inner-text nav-title">
                                     <a href="/Default.aspx" target="_blank">دکتریاب ایران</a>

@@ -35,8 +35,8 @@
             <div class="container-fluid">
                 <!-- Logo container-->
                 <a class="logo" href="/">
-                    <img src="/assets/images/doctoryab_logo.png" height="24" class="logo-light-mode" alt="دکتریاب ایران" />
-                    <img src="/assets/images/doctoryab_logo.png" height="24" class="logo-dark-mode" alt="دکتریاب ایران" />
+                    <img src="/assets/images/doctoryab_logo.jpg" height="24" class="logo-light-mode" alt="دکتریاب ایران" />
+                    <img src="/assets/images/doctoryab_logo.jpg" height="24" class="logo-dark-mode" alt="دکتریاب ایران" />
                 </a>
                 <!-- Logo End -->
 
