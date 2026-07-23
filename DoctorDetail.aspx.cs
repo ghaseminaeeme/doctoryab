@@ -22,6 +22,7 @@ namespace DoctorYab
             if (!IsPostBack)
             {
                 TblDoctor _TblDoctor = new TblDoctor(Convert.ToInt32(Request.QueryString["did"]));
+                TblCity _TblCity = new TblCity(_TblDoctor.DCityFk);
                 HtmlMeta metaKey = new HtmlMeta();
                 metaKey.Name = "keywords";
                 metaKey.Content = _TblDoctor.DKeyword;
@@ -29,7 +30,7 @@ namespace DoctorYab
 
                 HtmlHead head = Page.Header;
                 HtmlTitle title = new HtmlTitle();
-                title.Text = "دکتریاب ایران | " + _TblDoctor.DName;
+                title.Text = _TblDoctor.DName + " | " + _TblDoctor.DSpecialty + " | شهر " + _TblCity.CName;
                 head.Controls.Add(title);
 
                 HtmlMeta metaKey2 = new HtmlMeta();
@@ -41,6 +42,7 @@ namespace DoctorYab
 
             }
         }
+
 
         private void LoadDaysAndFirstTimes()
         {
