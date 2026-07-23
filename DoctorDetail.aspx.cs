@@ -12,6 +12,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using website;
+using System.Web.Script.Serialization;
 
 namespace DoctorYab
 {
@@ -38,9 +39,105 @@ namespace DoctorYab
                 metaKey2.Content = "دکتریاب ایران، " + _TblDoctor.DName;
                 Page.Header.Controls.Add(metaKey2);
 
+                if (_TblDoctor != null)
+                {
+                    GenerateDoctorSchema(_TblDoctor);
+                }
+
                 LoadDaysAndFirstTimes();
 
             }
+        }
+
+        private void GenerateDoctorSchema(TblDoctor doctor)
+        {
+            TblCity _tblcity = new TblCity(doctor.DCityFk);
+            var physician = new PhysicianSchema
+            {
+                context = "https://schema.org",
+                type = "Physician",
+                name = doctor.DName,
+                description = doctor.DKeyword,
+                telephone = doctor.DTel,
+                email = doctor.DEmail,
+                url = Request.Url.AbsoluteUri,
+                medicalSpecialty = doctor.DSpecialty,
+                address = new AddressSchema
+                {
+                    type = "PostalAddress",
+                    addressLocality = _tblcity.CName,
+                    streetAddress = doctor.DAddress
+                },
+
+                geo = new GeoSchema
+                {
+                    type = "GeoCoordinates",
+                    latitude = doctor.DLat,
+                    longitude = doctor.DLong
+                },
+
+                sameAs = new List<string>()
+            };
+
+
+            // لینک شبکه های اجتماعی
+            if (!string.IsNullOrEmpty(doctor.DInstagram))
+                physician.sameAs.Add(doctor.DInstagram);
+
+            if (!string.IsNullOrEmpty(doctor.DTelegram))
+                physician.sameAs.Add(doctor.DTelegram);
+
+            if (!string.IsNullOrEmpty(doctor.DWebsite))
+                physician.sameAs.Add(doctor.DWebsite);
+
+            if (!string.IsNullOrEmpty(doctor.DAparat))
+                physician.sameAs.Add(doctor.DAparat);
+
+
+
+            var breadcrumb = new BreadcrumbSchema
+            {
+                context = "https://schema.org",
+                type = "BreadcrumbList",
+
+                itemListElement = new List<BreadcrumbItem>
+        {
+            new BreadcrumbItem
+            {
+                type = "ListItem",
+                position = 1,
+                name = "خانه",
+                item = "https://doctor-yabiran.ir/"
+            },
+
+            new BreadcrumbItem
+            {
+                type = "ListItem",
+                position = 2,
+                name = "پزشکان",
+                item = "https://doctor-yabiran.ir/"
+            },
+
+            new BreadcrumbItem
+            {
+                type = "ListItem",
+                position = 3,
+                name = doctor.DName,
+                item = Request.Url.AbsoluteUri
+            }
+        }
+            };
+
+
+            var serializer = new JavaScriptSerializer();
+
+
+            string physicianJson = serializer.Serialize(physician);
+
+            string breadcrumbJson = serializer.Serialize(breadcrumb);
+
+
+            ltSchema.Text = physicianJson + Environment.NewLine + breadcrumbJson;
         }
 
 

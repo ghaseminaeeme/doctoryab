@@ -3055,6 +3055,7 @@
     <Compile Include="reserve.aspx.designer.cs">
       <DependentUpon>reserve.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SchemaModels.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -2,8 +2,9 @@
     Inherits="DoctorYab.DoctorDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="application/ld+json">
     <asp:Literal ID="ltSchema" runat="server"></asp:Literal>
-</asp:Content>
+</script></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
 
