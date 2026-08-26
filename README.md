@@ -1,2 +1,2 @@
 # doctoryab
-https://doctoryab-iran.com/
+https://doctor-yabiran.ir/
