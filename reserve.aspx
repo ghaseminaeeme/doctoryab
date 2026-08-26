@@ -38,30 +38,19 @@
     </div>
 
 
-    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
-        <ItemTemplate>
-            <h4 class="title mb-3">رزرو نوبت برای تاریخ <%#Eval("persianDate") %> ، ساعت  <%#Eval("startTime") %></h4>
-        </ItemTemplate>
-    </asp:FormView>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>"
-        SelectCommand="selectAppointmentDetail" SelectCommandType="StoredProcedure">
-        <SelectParameters>
-            <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-
-
-
-    <div class="section pt-0">
+    <div class="section pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="heading_s1">
-                        <h2>تماس با ما</h2>
+                        <h2>رزرو نوبت برای تاریخ 
+                            <asp:Label ID="lbDate" runat="server" Text=""></asp:Label>، ساعت 
+                            <asp:Label ID="lbTime" runat="server" Text=""></asp:Label>
+                            <asp:LinkButton ID="btnDoctor" runat="server" CssClass="reserve-link"></asp:LinkButton>
+                        </h2>
                     </div>
-                    <p class="leads">از طریق فرم زیر و ارسال نظر و پیام خود، با ما در ارتباط باشید.</p>
+                    <p class="leads txt-stronger">لطفا نام و تلفن تماس خود را در فرم زیر وارد کنید و روی دکمه رزرو نوبت کلیک کنید.</p>
                     <div class="field_form">
 
                         <asp:Panel ID="Panel2" runat="server" DefaultButton="Button1" class="form contact-us-form">
@@ -71,16 +60,19 @@
                                     <asp:Label ID="success" runat="server" Text=" " CssClass="lb-suc" Visible="false"></asp:Label>
 
                                     <div class="form-group">
-                                        <label for="username">نام شما</label>
-                                        <asp:TextBox ID="TxtName" runat="server" placeholder="نام و نام خانوادگی خود را وارد کنید" class="form-control"></asp:TextBox>
+                                        <label for="username">نام شما *</label>
+                                        <asp:TextBox ID="TxtName" runat="server" placeholder="نام و نام خانوادگی خود را وارد کنید" class="form-control" MaxLength="40"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="v1" CssClass="validator" runat="server" ErrorMessage="نام و نام خانوادگی الزامی است." ControlToValidate="TxtName" ValidationGroup="save"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email_1">تلفن</label>
-                                        <asp:TextBox ID="TxtTel" runat="server" placeholder="شماره تماس خود را وارد کنید " class="form-control"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="v2" CssClass="validator" runat="server" ErrorMessage="شماره تماس الزامی است." ControlToValidate="TxtTel" ValidationGroup="save"></asp:RequiredFieldValidator>
+                                        <label for="email_1">شماره موبایل * </label>
+                                        <asp:TextBox ID="TxtTel" runat="server" placeholder="شماره موبایل خود را وارد کنید " class="form-control" MaxLength="30"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="v2" CssClass="validator" runat="server" ErrorMessage="شماره موبایل الزامی است." ControlToValidate="TxtTel" ValidationGroup="save"></asp:RequiredFieldValidator>
                                     </div>
-                                    <asp:Button ID="Button1" runat="server" Text="رزرو نوبت" class="btn btn-dark btn-rounded" OnClientClick="return confirm('آیا از ثبت نوبت اطمینان دارید؟')" OnClick="LinkButton1_Click" ValidationGroup="save" />
+                                    <asp:Button ID="Button1" runat="server" Text="رزرو نوبت"
+                                        class="btn btn-dark btn-rounded"
+                                        OnClientClick="return showConfirmModal(this);"
+                                        OnClick="LinkButton1_Click" ValidationGroup="save" />
                                     <%--<asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-dark btn-rounded" OnClientClick="return confirm('آیا از ثبت نوبت اطمینان دارید؟')" OnClick="LinkButton1_Click" ValidationGroup="save">رزرو نوبت</asp:LinkButton>--%>
                                 </ContentTemplate>
                                 <Triggers>
@@ -97,13 +89,53 @@
     </div>
 
 
+    <div id="customConfirmModal" class="modal-overlay confirm" style="display: none;">
+        <div class="modal-box">
+            <h3>تأیید رزرو</h3>
+            <p>آیا از ثبت نوبت اطمینان دارید؟</p>
+            <div class=" modal-buttons">
+                <button type="button" class="btn-yes">بله</button>
+                <button type="button" class="btn-no">خیر</button>
+            </div>
+        </div>
+    </div>
 
+
+<script>
+    function showConfirmModal(btn) {
+        // اول ولیدیشن ASP.NET اجرا بشه
+        if (typeof (Page_ClientValidate) == 'function') {
+            if (!Page_ClientValidate('save')) {
+                return false;
+            }
+        }
+
+        // دکمه رو نگه داریم
+        window.__postbackBtn = btn;
+
+        // مدال رو نشون بده
+        document.getElementById("customConfirmModal").style.display = "flex";
+
+        return false; // جلوی ارسال فرم رو بگیر تا کاربر انتخاب کنه
+    }
+
+    // وقتی صفحه لود شد، دکمه‌های مدال رو وصل کن
+    window.onload = function () {
+        document.querySelector("#customConfirmModal .btn-yes").onclick = function () {
+            document.getElementById("customConfirmModal").style.display = "none";
+            if (window.__postbackBtn) {
+                __doPostBack(window.__postbackBtn.name, ""); // ارسال فرم
+            }
+        };
+        document.querySelector("#customConfirmModal .btn-no").onclick = function () {
+            document.getElementById("customConfirmModal").style.display = "none";
+        };
+    };
+</script>
 
 
 
 
 
 </asp:Content>
-
-
 

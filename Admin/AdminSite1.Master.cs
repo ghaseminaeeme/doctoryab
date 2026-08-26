@@ -12,18 +12,18 @@ namespace _DoctorYab.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usr"] == null || (Session["usr"]).ToString() == "")
-            {
-                Response.Redirect("/Admin/Default.aspx");
-            }
-            else
-            {
-                TblUser _TblUser = new TblUser(TblUser.Columns.Username, Session["usr"]);
-                if (_TblUser.IsLoaded)
-                {
-                    LbUser.Text = _TblUser.Name;
-                }
-            }
+            //if (Session["usr"] == null || (Session["usr"]).ToString() == "")
+            //{
+            //    Response.Redirect("/Admin/Default.aspx");
+            //}
+            //else
+            //{
+            //    TblUser _TblUser = new TblUser(TblUser.Columns.Username, Session["usr"]);
+            //    if (_TblUser.IsLoaded)
+            //    {
+            //        LbUser.Text = _TblUser.Name;
+            //    }
+            //}
 
         }
 

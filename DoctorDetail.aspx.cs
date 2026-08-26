@@ -1,4 +1,5 @@
 ﻿using DalWebSite;
+using SubSonic;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,6 +12,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using website;
+using System.Web.Script.Serialization;
 
 namespace DoctorYab
 {
@@ -21,6 +23,7 @@ namespace DoctorYab
             if (!IsPostBack)
             {
                 TblDoctor _TblDoctor = new TblDoctor(Convert.ToInt32(Request.QueryString["did"]));
+                TblCity _TblCity = new TblCity(_TblDoctor.DCityFk);
                 HtmlMeta metaKey = new HtmlMeta();
                 metaKey.Name = "keywords";
                 metaKey.Content = _TblDoctor.DKeyword;
@@ -28,7 +31,7 @@ namespace DoctorYab
 
                 HtmlHead head = Page.Header;
                 HtmlTitle title = new HtmlTitle();
-                title.Text = "دکتریاب ایران | " + _TblDoctor.DName;
+                title.Text = _TblDoctor.DName + " | " + _TblDoctor.DSpecialty + " | شهر " + _TblCity.CName;
                 head.Controls.Add(title);
 
                 HtmlMeta metaKey2 = new HtmlMeta();
@@ -36,10 +39,286 @@ namespace DoctorYab
                 metaKey2.Content = "دکتریاب ایران، " + _TblDoctor.DName;
                 Page.Header.Controls.Add(metaKey2);
 
+                if (_TblDoctor != null)
+                {
+                    GenerateDoctorSchema(_TblDoctor);
+                }
+
                 LoadDaysAndFirstTimes();
+
             }
         }
 
+        private void GenerateDoctorSchema(TblDoctor doctor)
+        {
+            TblCity _tblcity = new TblCity(doctor.DCityFk);
+            var physician = new PhysicianSchema
+            {
+                context = "https://schema.org",
+                type = "Physician",
+                name = doctor.DName,
+                description = doctor.DKeyword,
+                telephone = doctor.DTel,
+                email = doctor.DEmail,
+                url = Request.Url.AbsoluteUri,
+                medicalSpecialty = doctor.DSpecialty,
+                address = new AddressSchema
+                {
+                    type = "PostalAddress",
+                    addressLocality = _tblcity.CName,
+                    streetAddress = doctor.DAddress
+                },
+
+                geo = new GeoSchema
+                {
+                    type = "GeoCoordinates",
+                    latitude = doctor.DLat,
+                    longitude = doctor.DLong
+                },
+
+                sameAs = new List<string>()
+            };
+
+
+            // لینک شبکه های اجتماعی
+            if (!string.IsNullOrEmpty(doctor.DInstagram))
+                physician.sameAs.Add(doctor.DInstagram);
+
+            if (!string.IsNullOrEmpty(doctor.DTelegram))
+                physician.sameAs.Add(doctor.DTelegram);
+
+            if (!string.IsNullOrEmpty(doctor.DWebsite))
+                physician.sameAs.Add(doctor.DWebsite);
+
+            if (!string.IsNullOrEmpty(doctor.DAparat))
+                physician.sameAs.Add(doctor.DAparat);
+
+
+
+            var breadcrumb = new BreadcrumbSchema
+            {
+                context = "https://schema.org",
+                type = "BreadcrumbList",
+
+                itemListElement = new List<BreadcrumbItem>
+        {
+            new BreadcrumbItem
+            {
+                type = "ListItem",
+                position = 1,
+                name = "خانه",
+                item = "https://doctor-yabiran.ir/"
+            },
+
+            new BreadcrumbItem
+            {
+                type = "ListItem",
+                position = 2,
+                name = "پزشکان",
+                item = "https://doctor-yabiran.ir/"
+            },
+
+            new BreadcrumbItem
+            {
+                type = "ListItem",
+                position = 3,
+                name = doctor.DName,
+                item = Request.Url.AbsoluteUri
+            }
+        }
+            };
+
+
+            var serializer = new JavaScriptSerializer();
+
+
+            string physicianJson = serializer.Serialize(physician);
+
+            string breadcrumbJson = serializer.Serialize(breadcrumb);
+
+
+            ltSchema.Text = physicianJson + Environment.NewLine + breadcrumbJson;
+        }
+
+
+        private void LoadDaysAndFirstTimes()
+        {
+            int doctorId = int.Parse(Request.QueryString["did"]);
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DbWebSiteConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.selectAppointment_v1", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@doctorId", doctorId);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    // Save appointments in ViewState
+                    ViewState["Appointments"] = ds;
+                    Page.ClientScript.RegisterHiddenField("hasAppointments", "true");
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        string firstDate = ds.Tables[0].Rows[0]["AppointmentDate"].ToString();
+                        ViewState["SelectedDate"] = firstDate;
+                        HiddenSelectedDate.Value = firstDate;
+
+                        rptDays.DataSource = ds.Tables[0];
+                        rptDays.DataBind();
+
+                        UpdateSelectedDateHeader(firstDate);
+                        BindTimesForDate(firstDate);
+
+                        lbEmpty.Visible = false;
+                        lbGuid.Visible = true;
+                    }
+                    else
+                    {
+                        rptDays.DataSource = ds.Tables[0];
+                        rptDays.DataBind();
+                        upMain.Visible = false;
+                        upTimes.Visible = false;
+                        lbEmpty.Visible = true;
+                        lbGuid.Visible = false;
+                    }
+                }
+            }
+        }
+
+        protected void rptDays_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "SelectDay")
+            {
+                string selectedDate = e.CommandArgument.ToString();
+                ViewState["SelectedDate"] = selectedDate;
+                HiddenSelectedDate.Value = selectedDate;
+
+                // update header text
+                UpdateSelectedDateHeader(selectedDate);
+
+                // bind times for that date
+                BindTimesForDate(selectedDate);
+
+                // update only the times panel
+                upTimes.Update();
+
+                // also rebind days so CSS active class updates
+                if (ViewState["Appointments"] is DataSet ds)
+                {
+                    rptDays.DataSource = ds.Tables[0];
+                    rptDays.DataBind();
+                    upMain.Update();
+                }
+            }
+        }
+
+        private void BindTimesForDate(string selectedDate)
+        {
+            if (ViewState["Appointments"] == null)
+            {
+                LoadDaysAndFirstTimes(); // reload if ViewState lost
+            }
+
+            if (ViewState["Appointments"] is DataSet ds)
+            {
+                DataTable allTimes = ds.Tables[1]; // Table 1 = times
+                DataView dv = new DataView(allTimes);
+                dv.RowFilter = $"AppointmentDate = '{selectedDate}'";
+
+                rptTimes.DataSource = dv;
+                rptTimes.DataBind();
+            }
+        }
+
+        private void UpdateSelectedDateHeader(string gregorianDate)
+        {
+            try
+            {
+                if (DateTime.TryParse(gregorianDate, out DateTime date))
+                {
+                    string dayName = ConvertToPersianDay(date.DayOfWeek.ToString());
+                    string persianDate = ConvertToPersianDate(gregorianDate);
+                    litSelectedDate.Text = dayName + " - " + persianDate;
+                }
+            }
+            catch { }
+        }
+
+        public static string ConvertToPersianDate(string gregorianDate)
+        {
+            if (DateTime.TryParse(gregorianDate, out DateTime date))
+            {
+                PersianCalendar pc = new PersianCalendar();
+                return $"{pc.GetYear(date):0000}/{pc.GetMonth(date):00}/{pc.GetDayOfMonth(date):00}";
+            }
+            return gregorianDate;
+        }
+
+        public static string ConvertToPersianDay(string englishDay)
+        {
+            switch (englishDay.ToLower())
+            {
+                case "saturday": return "شنبه";
+                case "sunday": return "یکشنبه";
+                case "monday": return "دوشنبه";
+                case "tuesday": return "سه‌شنبه";
+                case "wednesday": return "چهارشنبه";
+                case "thursday": return "پنج‌شنبه";
+                case "friday": return "جمعه";
+                default: return englishDay;
+            }
+        }
+
+        protected void rptDays_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var lnk = e.Item.FindControl("lnkDay") as LinkButton;
+                string selectedDate = ViewState["SelectedDate"] as string;
+                string currentDate = DataBinder.Eval(e.Item.DataItem, "AppointmentDate").ToString();
+
+                if (lnk != null && !string.IsNullOrEmpty(selectedDate) && currentDate == selectedDate)
+                {
+                    lnk.CssClass += " active";
+                }
+            }
+        }
+
+        protected void rptDays_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton lnkDay = e.Item.FindControl("lnkDay") as LinkButton;
+                if (lnkDay != null)
+                {
+                    ScriptManager.GetCurrent(Page).RegisterAsyncPostBackControl(lnkDay);
+                }
+            }
+        }
+
+        protected string SelectedDay
+        {
+            get => ViewState["SelectedDate"]?.ToString() ?? "";
+            set => ViewState["SelectedDate"] = value;
+        }
+
+        protected void rptTimes_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Reserve")
+            {
+                string[] args = e.CommandArgument.ToString().Split('|');
+                string selectedDate = args[0];
+                string selectedTime = args[1];
+                string doctorId = Request.QueryString["did"];
+
+                Response.Redirect($"/Reserve.aspx?did={doctorId}&date={selectedDate}&time={selectedTime}", false);
+            }
+        }
+
+        /*
         private void LoadDaysAndFirstTimes()
         {
             int doctorId = int.Parse(Request.QueryString["did"]);
@@ -183,6 +462,19 @@ namespace DoctorYab
             }
         }
 
+        protected void rptDays_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton lnkDay = e.Item.FindControl("lnkDay") as LinkButton;
+                if (lnkDay != null)
+                {
+                    ScriptManager.GetCurrent(Page).RegisterAsyncPostBackControl(lnkDay);
+                }
+            }
+        }
+
+
         protected string SelectedDay
         {
             get
@@ -195,56 +487,7 @@ namespace DoctorYab
             }
         }
 
-        protected void btnReserve_Click(object sender, EventArgs e)
-        {
-            //err.Visible = false;
-            //try
-            //{
-            //    string rawTime = hfSelectedTime.Value; //lbTime.Text;
-            //    DateTime selectedDateTime = Convert.ToDateTime(hfSelectedTime.Value);
-            //    string selectedTime = selectedDateTime.ToString("HH:mm"); // match format of RTime
-
-
-            //    int count = new Select("COUNT(*)")
-            //                   .From(TblReserve.Schema)
-            //                   .Where(TblReserve.Columns.RTime).IsEqualTo(selectedTime)
-            //                   .And(TblReserve.Columns.RDoctorId).IsEqualTo(doctorID)
-            //                   .And(TblReserve.Columns.RDatetime).IsEqualTo(selectedDateTime)
-            //                   .ExecuteScalar<int>();
-
-
-            //    if (count > 0)
-            //    {
-            //        err.Text = "متاسفانه این نوبت قبلا رزرو شده است.";
-            //        err.Visible = true;
-            //    }
-            //    else
-            //    {
-            //        string trackingCode = doctorID.ToString() + cc.RandomNumber(4).ToString();
-            //        TblReserve _TblReserve = new TblReserve();
-            //        _TblReserve.RDatetime = DateTime.Parse(hfSelectedTime.Value);
-            //        _TblReserve.RDoctorId = doctorID;
-            //        _TblReserve.RName = txtName.Text;
-            //        _TblReserve.RPhonenumber = txtTel.Text;
-            //        _TblReserve.RSaveDate = DateTime.Now;
-            //        _TblReserve.RTime = selectedTime;
-            //        _TblReserve.RTrackingCode = trackingCode;
-            //        _TblReserve.RStatus = 0;
-            //        _TblReserve.Save();
-            //        Response.Cookies["trackingCode"].Value = trackingCode;
-
-            //        // ✅ Safe redirect without thread abort
-            //        Response.Redirect("/Reserve.aspx", false);
-            //        Context.ApplicationInstance.CompleteRequest();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    string error = ex.Message;
-            //    err.Text = "متاسفانه خطایی پیش آمد، لطفا دوباره سعی کنید.";
-            //    err.Visible = true;
-            //}
-        }
+     
 
         ClassControl _ClassControl = new ClassControl();
         //protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -257,5 +500,8 @@ namespace DoctorYab
 
         //    }
         //}
+
+
+        */
     }
 }

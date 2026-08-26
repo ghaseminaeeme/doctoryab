@@ -1,6 +1,66 @@
 ﻿<%@ Page Title="" ValidateRequest="false" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Doctors.aspx.cs" Inherits="DoctorYab.Doctors" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "لیست پزشکان",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=475"        
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=476"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2029"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2028"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2027"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2026"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2019"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2018"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2017"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "url": "https://www.doctor-yabiran.ir/DoctorDetail.aspx?did=2016"
+    }
+  ]
+}
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="breadcrumb_section bg_gray page-title-mini">

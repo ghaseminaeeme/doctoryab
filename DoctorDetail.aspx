@@ -2,7 +2,9 @@
     Inherits="DoctorYab.DoctorDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+<script type="application/ld+json">
+    <asp:Literal ID="ltSchema" runat="server"></asp:Literal>
+</script></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
 
@@ -25,8 +27,7 @@
                                 <li class="breadcrumb-item"><a href="Doctors.aspx?city=<%#Eval(" dCityFk")
                                             %>&branch=<%#Eval("dBranchFk") %>">پزشکان <%#Eval("bSubject") %>
                                     <%#Eval("cName") %></a></li>
-                                <li class="breadcrumb-item active"><a href="DoctorDetail.aspx?did=<%#Eval(" id")
-                                            %>"><%#Eval("dName") %></a></li>
+                                <li class="breadcrumb-item active"><a href="DoctorDetail.aspx?did=<%#Eval(" id") %>"><%#Eval("dName") %></a></li>
                             </ol>
                         </div>
                     </ItemTemplate>
@@ -89,9 +90,9 @@
                         <asp:FormView ID="FormView5" runat="server" DataSourceID="SqlDoctor" CssClass="w-100">
                             <ItemTemplate>
                                 <%#Eval("dVideo") %>
-                                <hr />
+
                                 <%#Eval("dVideo2") %>
-                                <hr />
+
                                 <%#Eval("dVideo3") %>
                             </ItemTemplate>
                         </asp:FormView>
@@ -145,67 +146,76 @@
                                 <div class="cart_extra">
                                     <div class="product_share">
                                         <span>این پزشک را در شبکه های اجتماعی دنبال کنید:</span>
+
                                         <ul class="social_icons sotialnet">
                                             <li><a href="https://telegram.me/<%#Eval(" dTelegram") %>"
-                                                target="_blank">
-                                                <img src="/assets/images/telegram.png" />
-                                                <%#Eval("dTelegram") %>
+                                                target="_blank" title='تلگرام: <%#Eval("dTelegram") %>'>
+                                                <i class="fab fa-telegram"></i>
                                             </a></li>
-
-                                            <li class="aparat"><a href="https://www.aparat.com/<%#Eval(" dAparat")
-                                                        %>"
-                                                target="_blank">
+                                            <li class="aparat"><a href='https://www.aparat.com/<%#Eval(" dAparat") %>'
+                                                target="_blank" title='آپارات: <%#Eval("dAparat") %>'>
                                                 <img src="/assets/images/aparat3.png" />
-                                                <%#Eval("dAparat") %>
                                             </a></li>
 
                                             <li><a href="https://www.instagram.com/<%#Eval(" dInstagram") %>/"
-                                                target="_blank">
-                                                <img src="/assets/images/instagram.png" />
-                                                <%#Eval("dInstagram") %>
+                                                target="_blank" title='اینستاگرام: <%#Eval("dInstagram") %>'>
+                                                <i class="fab fa-instagram"></i>
                                             </a></li>
 
-                                            <li><a href="https://wa.me/98<%#Eval(" dWhatsapp") %>/" target="_blank">
-                                                <img src="/assets/images/whatsapp1.png" />
-                                                <%#Eval("dWhatsapp") %>
+                                            <li><a href="https://wa.me/98<%#Eval(" dWhatsapp") %>/"
+                                                target="_blank" title='واتساپ: <%#Eval("dWhatsapp") %>'>
+                                                <i class="fab fa-whatsapp"></i>
                                             </a></li>
 
-                                            <li><a href="mailto:<%#Eval(" dEmail") %>/">
-                                                <img src="/assets/images/email.png" />
-                                                <%#Eval("dEmail") %>
+                                            <li><a href="mailto:<%#Eval(" dEmail") %>/" title='ایمیل: <%#Eval("dEmail") %>'>
+                                                <i class="fa fa-envelope"></i>
                                             </a></li>
 
-                                            <li><a href="http://<%#Eval(" dWebsite") %>/" target="_blank">
-                                                <img src="/assets/images/web.png" />
-                                                <%#Eval("dWebsite") %>
+                                            <li><a href="http://<%#Eval(" dWebsite") %>/" target="_blank" title='وب سایت: <%#Eval(" dWebsite") %>'>
+                                                <i class="fab fa-internet-explorer"></i>
                                             </a></li>
                                         </ul>
+
+                                        <%--<ul class="social_icons sotialnet">
+                                            <li><a href="https://telegram.me/<%#Eval(" dTelegram") %>"
+                                                target="_blank" title='تلگرام: <%#Eval("dTelegram") %>'>
+                                                <img src="/assets/images/telegram.png" />                                                
+                                            </a></li>
+
+                                            <li class="aparat"><a href='https://www.aparat.com/<%#Eval(" dAparat") %>'
+                                                target="_blank" title='آپارات: <%#Eval("dAparat") %>'>
+                                                <img src="/assets/images/aparat3.png" />                                                
+                                            </a></li>
+
+                                            <li><a href="https://www.instagram.com/<%#Eval(" dInstagram") %>/"
+                                                target="_blank" title='اینستاگرام: <%#Eval("dInstagram") %>'>
+                                                <img src="/assets/images/instagram.png" />
+                                            </a></li>
+
+                                            <li><a href="https://wa.me/98<%#Eval(" dWhatsapp") %>/" 
+                                                target="_blank" title='واتساپ: <%#Eval("dWhatsapp") %>'>
+                                                <img src="/assets/images/whatsapp1.png" />
+                                            </a></li>
+
+                                            <li><a href="mailto:<%#Eval(" dEmail") %>/"  title='ایمیل: <%#Eval("dEmail") %>'>
+                                                <img src="/assets/images/email.png" />
+                                            </a></li>
+
+                                            <li><a href="http://<%#Eval(" dWebsite") %>/" target="_blank" title='وب سایت: <%#Eval(" dWebsite") %>'>
+                                                <img src="/assets/images/web.png" />
+                                            </a></li>
+                                        </ul>--%>
                                     </div>
                                 </div>
                                 <hr />
                                 <div class="cart_extra">
-                                    <div class="cart_btn">
+                                    <div class="cart_btn map-container">
                                         <h4>مسیریابی</h4>
-                                        <a target="_blank" class="btn btn-fill-out btn-addtocart btn-map"
-                                            href="https://maps.google.com/?q=<%#Eval(" dLat") %>, <%#Eval("dLong")
-                                                    %>">نقشه گوگل</a>
 
-                                        <a target="_blank" class="btn btn-addtocart-revers btn-map"
-                                            href="https://www.waze.com/ul?ll=<%#Eval(" dLat") %>,<%#Eval("dLong") %>
-                                                    &navigate=yes&zoom=17">نقشه ویز</a>
-
-                                        <%-- <a target="_blank" class="btn btn-addtocart-revers btn-map"
-                                                href="https://balad.ir/#15.02/36.33781/59.52464">نقشه بلد</a>
-                                                <a target="_blank" class="btn btn-fill-out btn-addtocart btn-map"
-                                                    href="https://neshan.org/maps/">نقشه نشان</a>--%>
-                                        <%-- <a
-                                                    href="https://api.neshan.org/v2/static?key=service.tvW86Wz9ZwzMQkVUvrsfvVUHG1mVCpLra1xkQcwO&type=MAPTYPE&zoom=ZOOM_LEVEL&center=<%#Eval("
-                                                    dLat") %>,<%#Eval("dLong") %>
-                                                        &width=300&height=300&marker=red">map</a>--%>
-
-                                        <%-- GET:
-                                                            https://api.neshan.org/v1/search?term=YOUR_SEARCH_TERM&lat=LATITUDE&lng=LONGITUDE
-                                                            Headers: Api-Key: YOUR_API_KEY --%>
+                                        <iframe
+                                            height="250"
+                                            style='border: 0; width: 100%;'
+                                            src='https://maps.google.com/maps?q=<%#Eval("dLat") %>, <%#Eval("dLong") %> &hl=es;z=14&amp;output=embed'></iframe>
                                     </div>
                                 </div>
                                 <hr />
@@ -223,30 +233,32 @@
                     </asp:SqlDataSource>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="large_divider clearfix"></div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="tab-style3">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <%-- <li class="nav-item">
+                        <%-- <ul class="nav nav-tabs" role="tablist">
+                             <li class="nav-item">
                                     <a class="nav-link active" id="Description-tab" data-toggle="tab"
                                         href="#Description" role="tab" aria-controls="Description"
                                         aria-selected="true">ویدئو</a>
-                                    </li>--%>
+                                    </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="Additional-info-tab" data-toggle="tab"
                                     href="#Additional-info" role="tab" aria-controls="Additional-info"
-                                    aria-selected="true">موقعیت</a>
+                                    aria-selected="true">رزرو نوبت </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews"
                                     role="tab" aria-controls="Reviews" aria-selected="false">نظرات </a>
                             </li>
-                        </ul>
+                        </ul>--%>
                         <div class="tab-content shop_info_tab">
                             <%-- <div class="tab-pane fade show" id="Description" role="tabpanel"
                                     aria-labelledby="Description-tab">
@@ -256,7 +268,7 @@
                                     </div>
                             </div>--%>
 
-                            <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
+                            <%--  <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
                                 aria-labelledby="Additional-info-tab">
                                 <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor" CssClass="w-100">
                                     <ItemTemplate>
@@ -265,66 +277,110 @@
                                             src='https://maps.google.com/maps?q=<%#Eval("dLat") %>, <%#Eval("dLong") %> &hl=es;z=14&amp;output=embed'></iframe>
                                     </ItemTemplate>
                                 </asp:FormView>
-                            </div>
-                            <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
-
-                                <%--<div class="comments">
-                                    <asp:FormView ID="FormView5" runat="server" DataSourceID="SqlDoctor"
-                                        CssClass="w-100">
-                                        <ItemTemplate>
-                                            <h5 class="product_tab_title">نظرات در مورد <span>
-                                                    <%#Eval("dName") %>
-                                                </span></h5>
-                                        </ItemTemplate>
-                                    </asp:FormView>
-                                    <ul class="list_none comment_list mt-4">
-                                        <li>
-                                            <div class="comment_img">
-                                                <img src="assets/images/user.jpg" alt="user1" />
-                                            </div>
-                                            <div class="comment_block">
-                                                <div class="rating_wrap">
-                                                    <div class="rating">
-                                                        <div class="product_rate" style="width: 80%"></div>
-                                                    </div>
-                                                </div>
-                                                <p class="customer_meta">
-                                                    <span class="review_author">ستاره جمشیدی</span>
-                                                    <span class="comment-date">5 اسفند 1399</span>
-                                                </p>
-                                                <div class="description">
-                                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                                                        استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                                                        در ستون و سطرآنچنان که لازم است</p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ul>
                             </div>--%>
-                                <div class="review_form field_form">
-                                    <h5>ارسال نظرات</h5>
-                                    <div class="row mt-3">
-                                        <div class="form-group col-12">
-                                            <asp:TextBox ID="TxtDes" runat="server" TextMode="MultiLine"
-                                                placeholder="نظر شما *" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="TxtName" runat="server" placeholder="نام خود را وارد کنید *"
-                                                class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <asp:TextBox ID="TxtEmail" runat="server"
-                                                placeholder="ایمیل یا تلفن خود را وارد کنید *" class="form-control">
-                                            </asp:TextBox>
-                                        </div>
 
-                                        <div class="form-group col-12">
-                                            <asp:Button ID="Button1" runat="server" Text="ارسال نظر"
-                                                class="btn btn-fill-out" />
-                                        </div>
+                            <div class="tab-pane fade show active" id="Additional-info" role="tabpanel"
+                                aria-labelledby="Additional-info-tab">
+
+                                <div class="doctor-appointment" id="appointment">
+                                    <div class="apt-header">
+                                        <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
+
+                                        <asp:Label ID="lbEmpty" runat="server" Text="در حال حاضر نوبتی برای این پزشک ثبت نشده است." ></asp:Label>
+                                        <asp:Label ID="lbGuid" runat="server" Text="برای رزرو، روی نوبت مورد نظر خود کلیک کنید." Visible="false"></asp:Label>
+                                        <%--<span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>--%>
                                     </div>
+
+                                    <!-- Days UpdatePanel -->
+                                    <div class="upMain">
+                                        <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                                            <ContentTemplate>
+                                                <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
+                                                <!-- Date selector -->
+                                                <div class="days-container">
+                                                    <button type="button" class="nav-btn prev" onclick="scrollDays(-1)" aria-label="روزهای قبلی">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </button>
+                                                    <div class="days-wrapper" id="daysCarousel">
+                                                        <asp:Repeater ID="rptDays" runat="server"
+                                                            OnItemCommand="rptDays_ItemCommand"
+                                                            OnItemDataBound="rptDays_ItemDataBound"
+                                                            OnItemCreated="rptDays_ItemCreated">
+                                                            <ItemTemplate>
+                                                                <asp:LinkButton runat="server" ID="lnkDay"
+                                                                    CommandName="SelectDay"
+                                                                    CssClass="day-item"
+                                                                    UseSubmitBehavior="false"
+                                                                    CommandArgument='<%# Eval("AppointmentDate") %>'
+                                                                    CausesValidation="false">
+                                <div>
+                                    <span class="day-name">
+                                        <%# ConvertToPersianDay(DateTime.Parse(Eval("AppointmentDate").ToString()).DayOfWeek.ToString()) %>
+                                    </span>
+                                    <span class="day-date">
+                                        <%# ConvertToPersianDate(Eval("AppointmentDate").ToString()) %>
+                                    </span>
                                 </div>
+                                                                </asp:LinkButton>
+                                                            </ItemTemplate>
+                                                            
+                                                        </asp:Repeater>
+                                                        <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
+                                                    </div>
+                                                    <button type="button" class="nav-btn next" onclick="scrollDays(1)" aria-label="روزهای بعدی">
+                                                        <i class="fa fa-angle-left"></i>
+                                                    </button>
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+                                    <!-- Times UpdatePanel -->
+                                    <asp:UpdatePanel ID="upTimes" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <div class="times-header">
+                                                <div>
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <span>نوبت‌های روز: </span>
+                                                    <asp:Literal ID="litSelectedDate" runat="server" />
+                                                </div>
+                                                <div class="legend">
+                                                    <span><span class="dot available"></span>قابل رزرو</span>
+                                                    <span><span class="dot reserved"></span>رزرو شده</span>
+                                                </div>
+                                            </div>
+                                            <div class="times-wrapper">
+                                                <asp:Repeater ID="rptTimes" runat="server" OnItemCommand="rptTimes_ItemCommand">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btnReserve" runat="server"
+                                                            CssClass='<%# Convert.ToBoolean(Eval("IsReserved")) ? "time-slot reserved" : "time-slot" %>'
+                                                            Enabled='<%# !Convert.ToBoolean(Eval("IsReserved")) %>'
+                                                            UseSubmitBehavior="false"
+                                                            CausesValidation="false"
+                                                            CommandName="Reserve"
+                                                            CommandArgument='<%# Eval("AppointmentDate") + "|" + ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") %>'>
+                                                            <%# Eval("AppointmentTime") != DBNull.Value ? ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") : "" %>
+
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
+
+                                <script>
+                                    function scrollDays(direction) {
+                                        var el = document.getElementById('daysCarousel');
+                                        if (!el) return;
+                                        el.scrollBy({ left: direction * 180, behavior: 'smooth' });
+                                    }
+                                </script>
+
+
+                            </div>
+
+                            <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
+                                در حال حاضر نظری برای این پزشک ثبت نشده است.
                             </div>
 
                         </div>
@@ -333,265 +389,84 @@
             </div>
 
 
+            <div class="row">
 
-            <style>
-                .doctor-appointment {
-                    background: #fff;
-                    border-radius: 12px;
-                    padding: 20px;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-                    font-family: Vazirmatn, sans-serif;
-                }
-
-                .apt-header h6 {
-                    font-size: 1.1rem;
-                    color: #333;
-                    margin-bottom: 4px;
-                }
-
-                .apt-header span {
-                    font-size: 0.9rem;
-                    color: #777;
-                }
-
-                .days-wrapper {
-                    display: flex;
-                    gap: 10px;
-                    overflow-x: auto;
-                    padding: 10px 0;
-                    scrollbar-width: none;
-                }
-
-                    .days-wrapper::-webkit-scrollbar {
-                        display: none;
-                    }
-
-                .day-item {
-                    display: block;
-                    min-width: 80px;
-                    text-align: center;
-                    background: #f7f7f7;
-                    border-radius: 8px;
-                    padding: 8px 5px;
-                    color: #333;
-                    border: 1px solid transparent;
-                    transition: all 0.2s ease;
-                }
-
-                    .day-item:hover {
-                        background: #e9f5ff;
-                        border-color: #007bff;
-                    }
-
-                    .day-item.active {
-                        background: #e9f5ff;
-                        border-color: #007bff;
-                        box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
-                    }
-
-                .day-name {
-                    font-weight: bold;
-                    font-size: 0.85rem;
-                }
-
-                .day-date {
-                    font-size: 0.8rem;
-                    color: #666;
-                }
-
-                .times-wrapper {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 10px;
-                    margin-top: 15px;
-                }
-
-                .times-header {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
-
-                    .times-header .legend {
-                        display: flex;
-                        align-items: center;
-                        gap: 12px;
-                        font-size: 0.85rem;
-                        color: #666;
-                    }
-
-                .legend .dot {
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    display: inline-block;
-                    margin-left: 6px;
-                }
-
-                .dot.available {
-                    background: #007bff;
-                }
-
-                .dot.reserved {
-                    background: #bbb;
-                }
-
-                .time-slot {
-                    padding: 8px 15px;
-                    background: #f0f8ff;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    color: #007bff;
-                    border: 1px solid #007bff;
-                    cursor: pointer;
-                    transition: all 0.2s ease;
-                }
-
-                    .time-slot:hover {
-                        background: #007bff;
-                        color: white;
-                    }
-
-                    .time-slot.reserved {
-                        background: #f2f2f2;
-                        color: #aaa;
-                        border-color: #ddd;
-                        cursor: not-allowed;
-                    }
-
-                /* Days horizontal nav */
-                .days-container {
-                    position: relative;
-                }
-
-                .nav-btn {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 32px;
-                    height: 32px;
-                    border: 1px solid #e0e0e0;
-                    background: #fff;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: #777;
-                    cursor: pointer;
-                    transition: all 0.2s ease;
-                    z-index: 1;
-                }
-
-                    .nav-btn:hover {
-                        color: #333;
-                        border-color: #ccc;
-                    }
-
-                    .nav-btn.prev {
-                        right: -10px;
-                    }
-
-                    .nav-btn.next {
-                        left: -10px;
-                    }
-            </style>
-
-
-            <div class="doctor-appointment" id="appointment">
-                <div class="apt-header">
-                    <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
-                    <span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>
+                <div class="col-12">
+                    <div class="small_divider"></div>
+                    <div class="divider"></div>
+                    <div class="medium_divider"></div>
                 </div>
 
-                <asp:UpdatePanel ID="upMain" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
-                    <ContentTemplate>
-                        <asp:Label ID="err" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
-                        <!-- Date selector -->
-                        <div class="days-container">
-                            <button type="button" class="nav-btn prev" onclick="scrollDays(-1)" aria-label="روزهای قبلی">
-                                <i
-                                    class="fa fa-angle-right"></i>
-                            </button>
-                            <div class="days-wrapper" id="daysCarousel">
-                                <asp:Repeater ID="rptDays" runat="server" OnItemCommand="rptDays_ItemCommand" OnItemDataBound="rptDays_ItemDataBound">
-                                    <ItemTemplate>
-                                        <asp:LinkButton runat="server" ID="lnkDay" CommandName="SelectDay" CssClass="day-item" UseSubmitBehavior="false"
-                                            CommandArgument='<%# Eval("AppointmentDate") %>' CausesValidation="false">
-                                        <div>
-                                            <span class="day-name">
-                                                <%# ConvertToPersianDay(DateTime.Parse(Eval("AppointmentDate").ToString()).DayOfWeek.ToString())
-                                                    %>
-                                            </span>
-                                            <span class="day-date">
-                                                <%# ConvertToPersianDate(Eval("AppointmentDate").ToString()) %>
-                                            </span>
-                                        </div>
-                                        </asp:LinkButton>
-                                        <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# HiddenSelectedDate.Value %>' />
-                                    </ItemTemplate>
-                                </asp:Repeater>
-
-                                <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
-
+                <%--                <div class="comments">
+                    <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor"
+                        CssClass="w-100">
+                        <ItemTemplate>
+                            <h5 class="product_tab_title">نظرات در مورد <span>
+                                <%#Eval("dName") %>
+                            </span></h5>
+                        </ItemTemplate>
+                    </asp:FormView>
+                    <ul class="list_none comment_list mt-4">
+                        <li>
+                            <div class="comment_img">
+                                <img src="assets/images/user.jpg" alt="user1" />
                             </div>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="rptDays" EventName="ItemCommand" />
-                    </Triggers>
-                </asp:UpdatePanel>
-                <button type="button" class="nav-btn next" onclick="scrollDays(1)" aria-label="روزهای بعدی">
-                    <i class="fa fa-angle-left"></i>
-                </button>
-            </div>
+                            <div class="comment_block">
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <p class="customer_meta">
+                                    <span class="review_author">ستاره جمشیدی</span>
+                                    <span class="comment-date">5 اسفند 1399</span>
+                                </p>
+                                <div class="description">
+                                    <p>
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                                                        استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                                                        در ستون و سطرآنچنان که لازم است
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
 
-            <!-- Time slots -->
-            <div class="times-header">
-                <div>
-                    <i class="fa fa-clock-o"></i>
-                    <span>نوبت‌های روز: </span>
-                    <asp:Literal ID="litSelectedDate" runat="server" />
+                    </ul>
+                </div>--%>
+                <div class="review_form field_form col-md-12">
+                    <h5>ارسال نظرات</h5>
+                    <div class="row mt-3">
+                        <div class="form-group col-12">
+                            <asp:TextBox ID="TxtDes" runat="server" TextMode="MultiLine"
+                                placeholder="نظر شما *" class="form-control"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <asp:TextBox ID="TxtName" runat="server" placeholder="نام خود را وارد کنید *"
+                                class="form-control"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <asp:TextBox ID="TxtEmail" runat="server"
+                                placeholder="ایمیل یا تلفن خود را وارد کنید *" class="form-control">
+                            </asp:TextBox>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <asp:Button ID="Button1" runat="server" Text="ارسال نظر"
+                                class="btn btn-fill-out" />
+                        </div>
+                    </div>
                 </div>
-                <div class="legend">
-                    <span><span class="dot available"></span>قابل رزرو</span>
-                    <span><span class="dot reserved"></span>رزرو شده</span>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="small_divider"></div>
+                    <div class="divider"></div>
+                    <div class="medium_divider"></div>
                 </div>
             </div>
-            <div class="times-wrapper">
-                <asp:Repeater ID="rptTimes" runat="server">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnReserve" runat="server" OnClick="btnReserve_Click" CssClass='<%# Convert.ToBoolean(Eval("IsReserved")) ? "time-slot reserved" : "time-slot" %>' Enabled='<%# !Convert.ToBoolean(Eval("IsReserved")) %>' UseSubmitBehavior="false" CausesValidation="false">
-                                    <%# Eval("AppointmentTime") !=DBNull.Value ?
-                                        ((TimeSpan)Eval("AppointmentTime")).ToString(@"hh\:mm") : "" %>
-                        </asp:LinkButton>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
 
 
-            <script>
-                function scrollDays(direction) {
-                    var el = document.getElementById('daysCarousel');
-                    if (!el) return;
-                    el.scrollBy({ left: direction * 180, behavior: 'smooth' });
-                }
-            </script>
-            </div>
-
-
-
-
-
-
-
-        <div class="row">
-            <div class="col-12">
-                <div class="small_divider"></div>
-                <div class="divider"></div>
-                <div class="medium_divider"></div>
-            </div>
-        </div>
             <div class="row">
                 <div class="col-12">
                     <div class="heading_s1">
@@ -639,6 +514,8 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </asp:Content>
