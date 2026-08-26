@@ -54,3 +54,4 @@ F:\Projects\DoctorYab\DoctorYab\obj\Debug\DoctorYab.csproj.CoreCompileInputs.cac
 F:\Projects\DoctorYab\DoctorYab\obj\Debug\DoctorYab.csproj.CopyComplete
 F:\Projects\DoctorYab\DoctorYab\obj\Debug\DoctorYab.dll
 F:\Projects\DoctorYab\DoctorYab\obj\Debug\DoctorYab.pdb
+F:\Projects\DoctorYab\DoctorYab\obj\Debug\DoctorYab.csproj.AssemblyReference.cache

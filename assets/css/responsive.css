@@ -762,10 +762,10 @@ div.banner_large_pad {
 .banner_content_inner {
 	padding: 30px;
 }
-.product_search_form {
-	max-width: 100%;
+/*.product_search_form {
+	max-width: 100%;*/
 	/*display: none;*/
-	position: absolute;
+	/*position: absolute;
 	left: 0;
 	right: 0;
 	bottom: -146px;
@@ -773,10 +773,10 @@ div.banner_large_pad {
 	right: 0;
 	width: 100%;
 	padding: 15px 15px;
-	background-color: #fff;
+	background-color: #fff;*/
 
 	/*top:150px;*/
-}
+/*}*/
 .product_search_form.show {
 	display: block;
 }

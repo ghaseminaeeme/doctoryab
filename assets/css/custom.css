@@ -580,3 +580,19 @@ span, p, input {
 .reserve-link {
     color: #FF324D;
 }
+.search-mobile {
+    display: none;
+    padding: 10px;
+    width:100%;
+}
+.search-desktop {
+    display: block;
+}
+@media only screen and (max-width: 991px){
+    .search-desktop {
+        display:none;
+    }
+    .search-mobile {
+        display: block;
+    }
+}
