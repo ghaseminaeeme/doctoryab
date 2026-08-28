@@ -38,10 +38,10 @@
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
     <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css?8764564" />
+    <link rel="stylesheet" href="assets/css/responsive.css?54fg6541d" />
     <!-- RTL CSS -->
     <link rel="stylesheet" href="assets/css/rtl-style.css" />
-    <link rel="stylesheet" href="assets/css/custom.css?5431232" />
+    <link rel="stylesheet" href="assets/css/custom.css?6546154" />
     <link href="bootstrap-select.min.css" rel="stylesheet" />
 
     <script type="application/ld+json">
@@ -66,7 +66,7 @@
         <!-- END LOADER -->
         <header class="header_wrap">
             <div class="top-header d-none d-md-block">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-8">
                             <div class="header_topbar_info">
@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div class="middle-header dark_skin">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="nav_block">
                         <a class="navbar-brand" href="/">
                             <img class="logo_light" src="assets/images/doctoryab_logo.jpg?546" alt="دکتریاب ایران" />
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="bottom_header light_skin main_menu_uppercase bg_dark mb-4">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-6 col-3">
                             <div class="categories_wrap">
@@ -238,7 +238,7 @@
         <div class="main_content">
             <!-- START SECTION BANNER -->
             <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-9 offset-lg-3">
                             <div id="carouselExampleControls" class="carousel slide light_arrow" data-ride="carousel">
@@ -293,41 +293,40 @@
             </div>
             <!-- END SECTION BANNER -->
 
-             <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-            <div class="product_search_form search-mobile">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product_search_form search-mobile">
+                            <asp:Panel ID="Panel3" runat="server" DefaultButton="lbSearchMobile">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="custom_select">
+                                            <asp:DropDownList ID="DrdCity1" runat="server" class="first_null" AppendDataBoundItems="true" DataSourceID="SqlCity" DataTextField="cName" DataValueField="id">
+                                                <asp:ListItem Value="0" Text="همه شهرها"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
 
-                <asp:Panel ID="Panel3" runat="server" DefaultButton="lbSearchMobile">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="custom_select">
-                                <asp:DropDownList ID="DrdCity1" runat="server" class="first_null" AppendDataBoundItems="true" DataSourceID="SqlCity" DataTextField="cName" DataValueField="id">
-                                    <asp:ListItem Value="0" Text="همه شهرها"></asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
+                                    <div class="input-group-prepend">
+                                        <div class="custom_select">
+                                            <asp:DropDownList ID="DrdBranch1" runat="server" class="first_null" AppendDataBoundItems="True" DataSourceID="SqlBranch" DataTextField="bSubject" DataValueField="id">
+                                                <asp:ListItem Value="0" Text="همه تخصص ها"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <asp:TextBox ID="TxtName1" runat="server" class="form-control search-doctor" placeholder="نام پزشک ..."></asp:TextBox>
+                                    <asp:LinkButton ID="lbSearchMobile" runat="server" class="search_btn" OnClick="lbSearchMobile_Click"><i class="linearicons-magnifier"></i></asp:LinkButton>
+                                </div>
+                            </asp:Panel>
+
                         </div>
-
-                        <div class="input-group-prepend">
-                            <div class="custom_select">
-                                <asp:DropDownList ID="DrdBranch1" runat="server" class="first_null" AppendDataBoundItems="True" DataSourceID="SqlBranch" DataTextField="bSubject" DataValueField="id">
-                                    <asp:ListItem Value="0" Text="همه تخصص ها"></asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                        </div>
-
-                        <asp:TextBox ID="TxtName1" runat="server" class="form-control search-doctor" placeholder="نام پزشک ..."></asp:TextBox>
-                        <asp:LinkButton ID="lbSearchMobile" runat="server" class="search_btn" OnClick="lbSearchMobile_Click"><i class="linearicons-magnifier"></i></asp:LinkButton>
                     </div>
-                </asp:Panel>
-
+                </div>
             </div>
 
-   </div>
-                    </div></div>
-
             <div class="section small_pb">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
                             <div class="heading_tab_header">
@@ -438,7 +437,7 @@
 
 
             <div class="section small_pt pb_20">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading_tab_header">

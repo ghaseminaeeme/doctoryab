@@ -584,6 +584,7 @@ span, p, input {
     display: none;
     padding: 10px;
     width:100%;
+    margin: 0 auto;
 }
 .search-desktop {
     display: block;
