@@ -39,6 +39,14 @@ namespace DoctorYab
             Response.Redirect(url);
         }
 
+        protected void lbSearchMobile_Click(object sender, EventArgs e)
+        {
+            Response.Cookies["name"].Value = TxtName1.Text;
+            string url = "Doctors.aspx?city=" + DrdCity1.SelectedValue + "&branch=" + DrdBranch1.SelectedValue;
+            Response.Redirect(url);
+
+        }
+
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             error.Visible = false;
@@ -72,5 +80,7 @@ namespace DoctorYab
             else
                 Response.Redirect("/");
         }
+
+
     }
 }

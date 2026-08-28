@@ -305,29 +305,19 @@
                                 <asp:DropDownList ID="DrdCity1" runat="server" class="first_null" AppendDataBoundItems="true" DataSourceID="SqlCity" DataTextField="cName" DataValueField="id">
                                     <asp:ListItem Value="0" Text="همه شهرها"></asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>" SelectCommand="SELECT [id], [cName] FROM [TblCity] WHERE ([cIsDeleted] &lt;&gt; @cIsDeleted) ORDER BY [cName]">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="true" Name="cIsDeleted" Type="Boolean" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
                             </div>
                         </div>
 
                         <div class="input-group-prepend">
                             <div class="custom_select">
-                                <asp:DropDownList ID="DropDownList2" runat="server" class="first_null" AppendDataBoundItems="True" DataSourceID="SqlBranch" DataTextField="bSubject" DataValueField="id">
+                                <asp:DropDownList ID="DrdBranch1" runat="server" class="first_null" AppendDataBoundItems="True" DataSourceID="SqlBranch" DataTextField="bSubject" DataValueField="id">
                                     <asp:ListItem Value="0" Text="همه تخصص ها"></asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>" SelectCommand="SELECT [id], [bSubject] FROM [TblBranch] WHERE ([bIsDeleted] &lt;&gt; @bIsDeleted) ORDER BY [bSubject]">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="true" Name="bIsDeleted" Type="Boolean" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
                             </div>
                         </div>
 
-                        <asp:TextBox ID="TextBox1" runat="server" class="form-control search-doctor" placeholder="نام پزشک ..."></asp:TextBox>
-                        <asp:LinkButton ID="lbSearchMobile" runat="server" class="search_btn" OnClick="LinkButton1_Click"><i class="linearicons-magnifier"></i></asp:LinkButton>
+                        <asp:TextBox ID="TxtName1" runat="server" class="form-control search-doctor" placeholder="نام پزشک ..."></asp:TextBox>
+                        <asp:LinkButton ID="lbSearchMobile" runat="server" class="search_btn" OnClick="lbSearchMobile_Click"><i class="linearicons-magnifier"></i></asp:LinkButton>
                     </div>
                 </asp:Panel>
 
