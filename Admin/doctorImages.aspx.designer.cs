@@ -60,6 +60,15 @@ namespace _DoctorYab.Admin
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
+        /// txtAlt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAlt;
+
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

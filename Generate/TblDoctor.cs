@@ -704,6 +704,32 @@ namespace DalWebSite
 				colvarDWhatsapp.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarDWhatsapp);
 				
+				TableSchema.TableColumn colvarDMetaTitle = new TableSchema.TableColumn(schema);
+				colvarDMetaTitle.ColumnName = "dMetaTitle";
+				colvarDMetaTitle.DataType = DbType.String;
+				colvarDMetaTitle.MaxLength = 100;
+				colvarDMetaTitle.AutoIncrement = false;
+				colvarDMetaTitle.IsNullable = true;
+				colvarDMetaTitle.IsPrimaryKey = false;
+				colvarDMetaTitle.IsForeignKey = false;
+				colvarDMetaTitle.IsReadOnly = false;
+				colvarDMetaTitle.DefaultSetting = @"";
+				colvarDMetaTitle.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarDMetaTitle);
+				
+				TableSchema.TableColumn colvarDMetaDes = new TableSchema.TableColumn(schema);
+				colvarDMetaDes.ColumnName = "dMetaDes";
+				colvarDMetaDes.DataType = DbType.String;
+				colvarDMetaDes.MaxLength = 500;
+				colvarDMetaDes.AutoIncrement = false;
+				colvarDMetaDes.IsNullable = true;
+				colvarDMetaDes.IsPrimaryKey = false;
+				colvarDMetaDes.IsForeignKey = false;
+				colvarDMetaDes.IsReadOnly = false;
+				colvarDMetaDes.DefaultSetting = @"";
+				colvarDMetaDes.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarDMetaDes);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -1109,6 +1135,24 @@ namespace DalWebSite
 			get { return GetColumnValue<string>(Columns.DWhatsapp); }
 			set { SetColumnValue(Columns.DWhatsapp, value); }
 		}
+		  
+		[XmlAttribute("DMetaTitle")]
+		[Bindable(true)]
+        [DataMember]
+		public string DMetaTitle 
+		{
+			get { return GetColumnValue<string>(Columns.DMetaTitle); }
+			set { SetColumnValue(Columns.DMetaTitle, value); }
+		}
+		  
+		[XmlAttribute("DMetaDes")]
+		[Bindable(true)]
+        [DataMember]
+		public string DMetaDes 
+		{
+			get { return GetColumnValue<string>(Columns.DMetaDes); }
+			set { SetColumnValue(Columns.DMetaDes, value); }
+		}
 		
 		#endregion
 		
@@ -1129,7 +1173,7 @@ namespace DalWebSite
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varDName,int? varDBranchFk,string varDProfileImg,string varDImg,string varDDes,string varDInstagram,string varDTelegram,string varDAparat,string varDEmail,string varDTel,string varDMobile,string varDVideo,string varDVideo2,string varDVideo3,string varDWebsite,string varDSpecialty,int? varDStateFk,int? varDCityFk,byte? varDStatus,bool? varDIsDeleted,DateTime? varDSaveDate,DateTime? varDEndDate,string varDKeyword,string varDNote,string varDAddress,string varDWorkTime,string varDLat,string varDLong,string varDPassword,string varDUsername,string varDDes2,bool? varDSpecialAd,string varDEnName,string varDEnDes,string varDArDes,string varDEnSpecialty,string varDArSpecialty,string varDEnAddress,string varDArAddress,string varDEnWorkTime,string varDArWorkTime,string varDArName,string varDWhatsapp)
+		public static void Insert(string varDName,int? varDBranchFk,string varDProfileImg,string varDImg,string varDDes,string varDInstagram,string varDTelegram,string varDAparat,string varDEmail,string varDTel,string varDMobile,string varDVideo,string varDVideo2,string varDVideo3,string varDWebsite,string varDSpecialty,int? varDStateFk,int? varDCityFk,byte? varDStatus,bool? varDIsDeleted,DateTime? varDSaveDate,DateTime? varDEndDate,string varDKeyword,string varDNote,string varDAddress,string varDWorkTime,string varDLat,string varDLong,string varDPassword,string varDUsername,string varDDes2,bool? varDSpecialAd,string varDEnName,string varDEnDes,string varDArDes,string varDEnSpecialty,string varDArSpecialty,string varDEnAddress,string varDArAddress,string varDEnWorkTime,string varDArWorkTime,string varDArName,string varDWhatsapp,string varDMetaTitle,string varDMetaDes)
 		{
 			TblDoctor item = new TblDoctor();
 			
@@ -1219,6 +1263,10 @@ namespace DalWebSite
 			
 			item.DWhatsapp = varDWhatsapp;
 			
+			item.DMetaTitle = varDMetaTitle;
+			
+			item.DMetaDes = varDMetaDes;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -1229,7 +1277,7 @@ namespace DalWebSite
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varDName,int? varDBranchFk,string varDProfileImg,string varDImg,string varDDes,string varDInstagram,string varDTelegram,string varDAparat,string varDEmail,string varDTel,string varDMobile,string varDVideo,string varDVideo2,string varDVideo3,string varDWebsite,string varDSpecialty,int? varDStateFk,int? varDCityFk,byte? varDStatus,bool? varDIsDeleted,DateTime? varDSaveDate,DateTime? varDEndDate,string varDKeyword,string varDNote,string varDAddress,string varDWorkTime,string varDLat,string varDLong,string varDPassword,string varDUsername,string varDDes2,bool? varDSpecialAd,string varDEnName,string varDEnDes,string varDArDes,string varDEnSpecialty,string varDArSpecialty,string varDEnAddress,string varDArAddress,string varDEnWorkTime,string varDArWorkTime,string varDArName,string varDWhatsapp)
+		public static void Update(int varId,string varDName,int? varDBranchFk,string varDProfileImg,string varDImg,string varDDes,string varDInstagram,string varDTelegram,string varDAparat,string varDEmail,string varDTel,string varDMobile,string varDVideo,string varDVideo2,string varDVideo3,string varDWebsite,string varDSpecialty,int? varDStateFk,int? varDCityFk,byte? varDStatus,bool? varDIsDeleted,DateTime? varDSaveDate,DateTime? varDEndDate,string varDKeyword,string varDNote,string varDAddress,string varDWorkTime,string varDLat,string varDLong,string varDPassword,string varDUsername,string varDDes2,bool? varDSpecialAd,string varDEnName,string varDEnDes,string varDArDes,string varDEnSpecialty,string varDArSpecialty,string varDEnAddress,string varDArAddress,string varDEnWorkTime,string varDArWorkTime,string varDArName,string varDWhatsapp,string varDMetaTitle,string varDMetaDes)
 		{
 			TblDoctor item = new TblDoctor();
 			
@@ -1320,6 +1368,10 @@ namespace DalWebSite
 				item.DArName = varDArName;
 			
 				item.DWhatsapp = varDWhatsapp;
+			
+				item.DMetaTitle = varDMetaTitle;
+			
+				item.DMetaDes = varDMetaDes;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1642,6 +1694,20 @@ namespace DalWebSite
         
         
         
+        public static TableSchema.TableColumn DMetaTitleColumn
+        {
+            get { return Schema.Columns[44]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn DMetaDesColumn
+        {
+            get { return Schema.Columns[45]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -1690,6 +1756,8 @@ namespace DalWebSite
 			 public static string DArWorkTime = @"dArWorkTime";
 			 public static string DArName = @"dArName";
 			 public static string DWhatsapp = @"dWhatsapp";
+			 public static string DMetaTitle = @"dMetaTitle";
+			 public static string DMetaDes = @"dMetaDes";
 						
 		}
 		#endregion

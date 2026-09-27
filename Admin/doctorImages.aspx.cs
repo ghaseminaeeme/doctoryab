@@ -39,6 +39,7 @@ namespace _DoctorYab.Admin
                     {
                         _TblDoctorImage.DPicture = UploadFiles("", "", "../Upload/doctors/dr-" + Id.ToString() + ".jpg", 0);
                     }
+                    _TblDoctorImage.DAlt = txtAlt.Text;
                     _TblDoctorImage.DDoctorFk = int.Parse(Request.QueryString["did"]);
                     _TblDoctorImage.Save();
                     GV.DataBind();
@@ -53,6 +54,7 @@ namespace _DoctorYab.Admin
                         _TblDoctorImage.DPicture = UploadFiles("", "", "../Upload/doctors/dr-" + Request.Cookies["Editid"].Value + ".jpg", 0);
                     }
                     _TblDoctorImage.DDoctorFk = int.Parse(Request.QueryString["did"]);
+                    _TblDoctorImage.DAlt = txtAlt.Text;
                     _TblDoctorImage.Save();
                     GV.DataBind();
                     suc.Visible = true;
@@ -74,6 +76,7 @@ namespace _DoctorYab.Admin
             Response.Cookies["Editid"].Value = GV.SelectedDataKey.Value.ToString();
             TblDoctorImage _TblDoctorImage = new TblDoctorImage(GV.SelectedDataKey.Value.ToString());
             Image1.ImageUrl = _TblDoctorImage.DPicture;
+            txtAlt.Text = _TblDoctorImage.DAlt;
             btnSave.Text = "ویرایش";
             suc.Visible = false;
             err.Visible = false;

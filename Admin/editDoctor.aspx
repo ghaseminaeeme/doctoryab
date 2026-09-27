@@ -179,11 +179,20 @@
                 </div>
                 <hr />
                 <div class="form-group col-md-12 col-xs-12 pull-right">
-                    <label>کلمات کلیدی حداکثر 200 کاراکتر</label>
-                    <asp:TextBox ID="TxtKey" class="form-control" runat="server" MaxLength="200"></asp:TextBox>
+                    <label>کلمات کلیدی حداکثر 2000 کاراکتر</label>
+                    <asp:TextBox ID="TxtKey" class="form-control" runat="server" MaxLength="2000"></asp:TextBox>
                 </div>
                 <hr />
-
+                 <div class="form-group col-md-12 col-xs-12 pull-right">
+                    <label>متا دسکریپشن  حداکثر 500 کاراکتر</label>
+                    <asp:TextBox ID="txtMetaDes" class="form-control" runat="server" MaxLength="500"></asp:TextBox>
+                </div>
+                <hr />
+                 <div class="form-group col-md-12 col-xs-12 pull-right">
+                    <label>متا تایتل  حداکثر 100 کاراکتر</label>
+                    <asp:TextBox ID="txtMetaTitle" class="form-control" runat="server" MaxLength="500"></asp:TextBox>
+                </div>
+                <hr />
                 <div class="form-group col-md-12 col-xs-12 pull-right">
                     <label>توضیحات</label>
                     <asp:TextBox ID="TxtDes" class="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>

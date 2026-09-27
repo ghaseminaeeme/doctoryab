@@ -18,12 +18,20 @@ namespace DoctorYab
 {
     public partial class DoctorDetail : System.Web.UI.Page
     {
+        private string _pageTitle;
+        private string _pageDescription;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 TblDoctor _TblDoctor = new TblDoctor(Convert.ToInt32(Request.QueryString["did"]));
                 TblCity _TblCity = new TblCity(_TblDoctor.DCityFk);
+
+                _pageTitle = _TblDoctor.DName + " | " + _TblDoctor.DSpecialty + " در " + _TblCity.CName;
+
+                _pageDescription = "معرفی " + _TblDoctor.DName + "، " + _TblDoctor.DSpecialty + " در " + _TblCity.CName                   
+                  + "، به همراه آدرس، شماره تماس و اطلاعات نوبت‌دهی.";
+
                 HtmlMeta metaKey = new HtmlMeta();
                 metaKey.Name = "keywords";
                 metaKey.Content = _TblDoctor.DKeyword;
@@ -31,17 +39,22 @@ namespace DoctorYab
 
                 HtmlHead head = Page.Header;
                 HtmlTitle title = new HtmlTitle();
-                title.Text = _TblDoctor.DName + " | " + _TblDoctor.DSpecialty + " | شهر " + _TblCity.CName;
+                if (_TblDoctor.DMetaTitle == null || _TblDoctor.DMetaTitle == "")
+                    title.Text = _pageTitle; //_TblDoctor.DName + " | " + _TblDoctor.DSpecialty + " | شهر " + _TblCity.CName;
+                else title.Text = _TblDoctor.DMetaTitle;
                 head.Controls.Add(title);
 
                 HtmlMeta metaKey2 = new HtmlMeta();
                 metaKey2.Name = "description";
-                metaKey2.Content = "دکتریاب ایران، " + _TblDoctor.DName;
+                if (_TblDoctor.DMetaDes == null || _TblDoctor.DMetaDes == "")
+                    metaKey2.Content = _pageDescription; //"دکتریاب ایران، " + _TblDoctor.DName;
+                else metaKey2.Content = _TblDoctor.DMetaDes;
                 Page.Header.Controls.Add(metaKey2);
 
                 if (_TblDoctor != null)
                 {
                     GenerateDoctorSchema(_TblDoctor);
+                    SetOpenGraph(_TblDoctor);
                 }
 
                 LoadDaysAndFirstTimes();
@@ -316,6 +329,37 @@ namespace DoctorYab
 
                 Response.Redirect($"/Reserve.aspx?did={doctorId}&date={selectedDate}&time={selectedTime}", false);
             }
+        }
+
+
+        private void SetOpenGraph(TblDoctor doctor)
+        {
+            AddMetaProperty("og:title",_pageTitle);
+
+            AddMetaProperty("og:description",_pageDescription);
+            string doctorUrl = "https://doctor-yabiran.ir/DoctorDetail.aspx?did=" + doctor.Id;
+            AddMetaProperty("og:url", doctorUrl);
+
+            AddMetaProperty("og:type", "profile");
+
+            AddMetaProperty("og:site_name", "دکتریاب ایران");
+
+            AddMetaProperty("og:locale", "fa_IR");
+
+            if (!string.IsNullOrEmpty(doctor.DImg))
+            {
+                AddMetaProperty("og:image", doctor.DImg);
+            }
+        }
+
+        private void AddMetaProperty(string property, string content)
+        {
+            HtmlMeta meta = new HtmlMeta();
+
+            meta.Attributes["property"] = property;
+            meta.Content = content;
+
+            Page.Header.Controls.Add(meta);
         }
 
         /*

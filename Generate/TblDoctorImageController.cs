@@ -81,13 +81,15 @@ namespace DalWebSite
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string DPicture,int? DDoctorFk)
+	    public void Insert(string DPicture,int? DDoctorFk,string DAlt)
 	    {
 		    TblDoctorImage item = new TblDoctorImage();
 		    
             item.DPicture = DPicture;
             
             item.DDoctorFk = DDoctorFk;
+            
+            item.DAlt = DAlt;
             
 	    
 		    item.Save(UserName);
@@ -97,7 +99,7 @@ namespace DalWebSite
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string DPicture,int? DDoctorFk)
+	    public void Update(int Id,string DPicture,int? DDoctorFk,string DAlt)
 	    {
 		    TblDoctorImage item = new TblDoctorImage();
 	        item.MarkOld();
@@ -108,6 +110,8 @@ namespace DalWebSite
 			item.DPicture = DPicture;
 				
 			item.DDoctorFk = DDoctorFk;
+				
+			item.DAlt = DAlt;
 				
 	        item.Save(UserName);
 	    }

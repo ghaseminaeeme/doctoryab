@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="application/ld+json">
     <asp:Literal ID="ltSchema" runat="server"></asp:Literal>
+
 </script></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
@@ -60,14 +61,14 @@
                                         <a href="#" class="product_gallery_item active"
                                             data-image='<%#Eval("dPicture") %>'
                                             data-zoom-image='<%#Eval("dPicture") %>'>
-                                            <img src='<%#Eval("dPicture") %>' alt="دکتریاب ایران" />
+                                            <img src='<%#Eval("dPicture") %>' alt='<%#Eval("dAlt") %>' />
                                         </a>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
                             <asp:SqlDataSource ID="SqlImages" runat="server"
                                 ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>"
-                                SelectCommand="SELECT [id], [dPicture], [dDoctorFk] FROM [TblDoctorImage] WHERE ([dDoctorFk] = @dDoctorFk)">
+                                SelectCommand="SELECT [id], [dPicture], [dDoctorFk], [dAlt] FROM [TblDoctorImage] WHERE ([dDoctorFk] = @dDoctorFk)">
                                 <SelectParameters>
                                     <asp:QueryStringParameter Name="dDoctorFk" QueryStringField="did"
                                         Type="Int32" />
@@ -78,7 +79,7 @@
                                     <div class="item">
                                         <a href="#" class="product_gallery_item" data-image='<%#Eval("dImg") %>'
                                             data-zoom-image='<%#Eval("dImg") %>'>
-                                            <img src='<%#Eval("dImg") %>' alt="دکتریاب ایران" />
+                                            <img src='<%#Eval("dImg") %>' alt='<%#Eval("dName") %>' />
                                         </a>
                                     </div>
                                 </ItemTemplate>

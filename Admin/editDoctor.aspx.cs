@@ -63,6 +63,10 @@ namespace _DoctorYab.Admin
                 TxtArName.Text = _TblDoctor.DArName;
                 TxtArSpe.Text = _TblDoctor.DArSpecialty;
                 TxtArTime.Text = _TblDoctor.DArWorkTime;
+
+                txtMetaDes.Text = _TblDoctor.DMetaDes;
+                txtMetaTitle.Text = _TblDoctor.DMetaTitle;
+
                 if (_TblDoctor.DSpecialAd == true)
                     CheckBox1.Checked = true;
                 else
@@ -121,6 +125,10 @@ namespace _DoctorYab.Admin
                     _TblDoctor.DArName = TxtArName.Text;
                     _TblDoctor.DArSpecialty = TxtArSpe.Text;
                     _TblDoctor.DArWorkTime = TxtArTime.Text;
+
+                     _TblDoctor.DMetaDes = txtMetaDes.Text;
+                    _TblDoctor.DMetaTitle = txtMetaTitle.Text ;
+
                     if (CheckBox1.Checked == true)
                         _TblDoctor.DSpecialAd = true;
                     else

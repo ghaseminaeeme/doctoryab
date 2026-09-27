@@ -26,6 +26,11 @@
                     <img id="output" style="width: 100px; height: 60px; margin-top: 5px;" /><asp:Image ID="Image1" runat="server" Style="width: 100px; height: 60px; margin-top: 5px;" />
                     <span class="help-block"></span>
                 </div>
+                 <div class="form-group col-md-12 col-xs-12 pull-right">
+                    <label>Alt تصویر حداکثر 150 کاراکتر</label>
+                    <asp:TextBox ID="txtAlt" class="form-control" runat="server" MaxLength="150"></asp:TextBox>
+                     <span class="help-block">متن جایگزین عکس در صورتی که عکس لود نشود</span>
+                </div>
                 <div class="form-group col-md-12">
                     <asp:Button ID="btnSave" runat="server" Text="ذخـــیره" class="btn btn-info pull-right" OnClick="btnSave_Click" />
                 </div>
@@ -56,6 +61,7 @@
                         OnSelectedIndexChanged="GV_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField DataField="Row" HeaderText="ردیف" SortExpression="Row"></asp:BoundField>
+                            <asp:BoundField DataField="dAlt" HeaderText="Alt" SortExpression="dAlt"></asp:BoundField>
                             <asp:ImageField DataImageUrlField="dPicture" HeaderText="تصویر">
                                 <ControlStyle Width="100%" />
                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" />
@@ -81,7 +87,7 @@
                     </asp:GridView>
 
                     <asp:SqlDataSource ID="SqlAll" runat="server" ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>"
-                        SelectCommand="SELECT [id], ROW_NUMBER() OVER (ORDER BY id DESC) Row, [dPicture], [dDoctorFk] FROM [TblDoctorImage] WHERE ([dDoctorFk] = @doctorFk)">
+                        SelectCommand="SELECT [id], ROW_NUMBER() OVER (ORDER BY id DESC) Row, [dPicture], [dDoctorFk], [dAlt] FROM [TblDoctorImage] WHERE ([dDoctorFk] = @doctorFk)">
                         <SelectParameters>
                             <asp:QueryStringParameter Name="doctorFk" QueryStringField="did" Type="Int32" />
                         </SelectParameters>

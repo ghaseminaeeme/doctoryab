@@ -339,6 +339,24 @@ namespace _DoctorYab.Admin
         protected global::System.Web.UI.WebControls.TextBox TxtKey;
 
         /// <summary>
+        /// txtMetaDes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMetaDes;
+
+        /// <summary>
+        /// txtMetaTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMetaTitle;
+
+        /// <summary>
         /// TxtDes control.
         /// </summary>
         /// <remarks>

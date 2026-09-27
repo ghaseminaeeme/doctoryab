@@ -171,6 +171,19 @@ namespace DalWebSite
 				colvarDDoctorFk.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarDDoctorFk);
 				
+				TableSchema.TableColumn colvarDAlt = new TableSchema.TableColumn(schema);
+				colvarDAlt.ColumnName = "dAlt";
+				colvarDAlt.DataType = DbType.String;
+				colvarDAlt.MaxLength = 150;
+				colvarDAlt.AutoIncrement = false;
+				colvarDAlt.IsNullable = true;
+				colvarDAlt.IsPrimaryKey = false;
+				colvarDAlt.IsForeignKey = false;
+				colvarDAlt.IsReadOnly = false;
+				colvarDAlt.DefaultSetting = @"";
+				colvarDAlt.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarDAlt);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -207,6 +220,15 @@ namespace DalWebSite
 			get { return GetColumnValue<int?>(Columns.DDoctorFk); }
 			set { SetColumnValue(Columns.DDoctorFk, value); }
 		}
+		  
+		[XmlAttribute("DAlt")]
+		[Bindable(true)]
+        [DataMember]
+		public string DAlt 
+		{
+			get { return GetColumnValue<string>(Columns.DAlt); }
+			set { SetColumnValue(Columns.DAlt, value); }
+		}
 		
 		#endregion
 		
@@ -227,13 +249,15 @@ namespace DalWebSite
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varDPicture,int? varDDoctorFk)
+		public static void Insert(string varDPicture,int? varDDoctorFk,string varDAlt)
 		{
 			TblDoctorImage item = new TblDoctorImage();
 			
 			item.DPicture = varDPicture;
 			
 			item.DDoctorFk = varDDoctorFk;
+			
+			item.DAlt = varDAlt;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -245,7 +269,7 @@ namespace DalWebSite
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varDPicture,int? varDDoctorFk)
+		public static void Update(int varId,string varDPicture,int? varDDoctorFk,string varDAlt)
 		{
 			TblDoctorImage item = new TblDoctorImage();
 			
@@ -254,6 +278,8 @@ namespace DalWebSite
 				item.DPicture = varDPicture;
 			
 				item.DDoctorFk = varDDoctorFk;
+			
+				item.DAlt = varDAlt;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -289,6 +315,13 @@ namespace DalWebSite
         
         
         
+        public static TableSchema.TableColumn DAltColumn
+        {
+            get { return Schema.Columns[3]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -296,6 +329,7 @@ namespace DalWebSite
 			 public static string Id = @"id";
 			 public static string DPicture = @"dPicture";
 			 public static string DDoctorFk = @"dDoctorFk";
+			 public static string DAlt = @"dAlt";
 						
 		}
 		#endregion
