@@ -218,7 +218,7 @@
                                         <li><a class="nav-link nav_item" href="/default.aspx">خانه</a></li>
                                         <li><a class="nav-link nav_item" href="/Doctors.aspx?city=0&branch=0">پزشکان</a></li>
                                         <li><a class="nav-link nav_item" href="/blog.aspx">مقالات</a></li>
-                                        <li><a class="nav-link nav_item" href="/about.aspx">آشنایی با ما</a></li>
+                                        <li><a class="nav-link nav_item" href="/about.aspx">درباره ما</a></li>
                                         <li><a class="nav-link nav_item" href="/contact.aspx">تماس با ما</a></li>
                                     </ul>
                                 </div>
@@ -565,9 +565,9 @@
                             <div class="widget">
                                 <h6 class="widget_title">لینک های مفید</h6>
                                 <ul class="widget_links">
+                                    <li><a href="/Doctors.aspx?city=0&branch=0">پزشکان</a></li>
+                                    <li><a href="/blog.aspx">مقالات</a></li>
                                     <li><a href="/about.aspx">درباره ما</a></li>
-                                    <li><a href="#">سؤالات متداول</a></li>
-                                    <li><a href="#">قوانین</a></li>
                                     <li><a href="/contact.aspx">تماس با ما</a></li>
                                 </ul>
                             </div>
