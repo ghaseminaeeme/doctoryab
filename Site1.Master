@@ -146,7 +146,7 @@
                                     <li><a class="nav-link nav_item" href="/default.aspx">خانه</a></li>
                                     <li><a class="nav-link nav_item" href="/Doctors.aspx?city=0&branch=0">پزشکان</a></li>
                                     <li><a class="nav-link nav_item" href="/blog.aspx">مقالات</a></li>
-                                    <li><a class="nav-link nav_item" href="/about.aspx">درباره  ما</a></li>
+                                    <li><a class="nav-link nav_item" href="/about.aspx">درباره ما</a></li>
                                     <li><a class="nav-link nav_item" href="/contact.aspx">تماس با ما</a></li>
                                 </ul>
                             </div>
