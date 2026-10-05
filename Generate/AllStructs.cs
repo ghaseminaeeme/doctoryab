@@ -45,6 +45,8 @@ namespace DalWebSite
         
 		public static readonly string TblDoctorImage = @"TblDoctorImage";
         
+		public static readonly string TblDoctorPool = @"TblDoctorPool";
+        
 		public static readonly string TblDoctor = @"TblDoctors";
         
 		public static readonly string TblMessage = @"TblMessage";
@@ -131,6 +133,11 @@ namespace DalWebSite
 		public static TableSchema.Table TblDoctorImage
 		{
             get { return DataService.GetSchema("TblDoctorImage", "DbWebSiteConnectionString"); }
+		}
+        
+		public static TableSchema.Table TblDoctorPool
+		{
+            get { return DataService.GetSchema("TblDoctorPool", "DbWebSiteConnectionString"); }
 		}
         
 		public static TableSchema.Table TblDoctor

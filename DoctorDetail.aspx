@@ -2,10 +2,11 @@
     Inherits="DoctorYab.DoctorDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type="application/ld+json">
+    <script type="application/ld+json">
     <asp:Literal ID="ltSchema" runat="server"></asp:Literal>
 
-</script></asp:Content>
+    </script>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
 
@@ -40,7 +41,15 @@
 
     <div class="section">
         <div class="container">
+            <div class="col-lg-12 col-md-12 mb-2">
+                <asp:Label ID="lbPoolSuc" runat="server" Text="نظر شما با موفقیت ثبت شد و بعد از بررسی منتشر می شود." CssClass="lb-suc" Visible="false"></asp:Label>
+                <asp:Label ID="lbPoolErr" runat="server" Text="متاسفانه خطایی رخ داد!" CssClass="lb-err" Visible="false"></asp:Label>
+            </div>
+        </div>
+
+        <div class="container">
             <div class="row">
+
                 <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
                     <div class="product-image">
                         <asp:FormView ID="FormView3" runat="server" DataSourceID="SqlDoctor" CssClass="w-100">
@@ -287,7 +296,7 @@
                                     <div class="apt-header">
                                         <h6><i class="fa fa-calendar-check"></i>نوبت‌دهی</h6>
 
-                                        <asp:Label ID="lbEmpty" runat="server" Text="در حال حاضر نوبتی برای این پزشک ثبت نشده است." ></asp:Label>
+                                        <asp:Label ID="lbEmpty" runat="server" Text="در حال حاضر نوبتی برای این پزشک ثبت نشده است."></asp:Label>
                                         <asp:Label ID="lbGuid" runat="server" Text="برای رزرو، روی نوبت مورد نظر خود کلیک کنید." Visible="false"></asp:Label>
                                         <%--<span>برای رزرو، روی نوبت مورد نظر خود کلیک کنید.</span>--%>
                                     </div>
@@ -324,7 +333,7 @@
                                 </div>
                                                                 </asp:LinkButton>
                                                             </ItemTemplate>
-                                                            
+
                                                         </asp:Repeater>
                                                         <asp:HiddenField ID="HiddenSelectedDate" runat="server" />
                                                     </div>
@@ -398,7 +407,7 @@
                     <div class="medium_divider"></div>
                 </div>
 
-                <%--                <div class="comments">
+                <div class="comments">
                     <asp:FormView ID="FormView6" runat="server" DataSourceID="SqlDoctor"
                         CssClass="w-100">
                         <ItemTemplate>
@@ -407,35 +416,44 @@
                             </span></h5>
                         </ItemTemplate>
                     </asp:FormView>
+
                     <ul class="list_none comment_list mt-4">
-                        <li>
-                            <div class="comment_img">
-                                <img src="assets/images/user.jpg" alt="user1" />
-                            </div>
-                            <div class="comment_block">
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width: 80%"></div>
+                        <asp:ListView ID="listPool" runat="server" DataSourceID="SqlPool">
+                            <ItemTemplate>
+                                <li>
+                                  
+                                    <div class="comment_block">
+                                        <div class="rating_wrap">
+                                            <%--<div class="rating">
+                                                <div class="product_rate" style="width: 80%"></div>
+                                            </div>--%>
+                                        </div>
+                                        <p class="customer_meta">
+                                            <span class="review_author"><%#Eval("pName") %></span>
+                                            <span class="comment-date"><%#Eval("savePersianDate") %></span>
+                                        </p>
+                                        <div class="description">
+                                            <%#Eval("pDes") %>
+                                        </div>
                                     </div>
-                                </div>
-                                <p class="customer_meta">
-                                    <span class="review_author">ستاره جمشیدی</span>
-                                    <span class="comment-date">5 اسفند 1399</span>
-                                </p>
-                                <div class="description">
-                                    <p>
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                                                        استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                                                        در ستون و سطرآنچنان که لازم است
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
+                                </li>
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                <p>اولین نفری باشید که نظر خود را در مورد پزشک، ثبت می کنید</p>
+                            </EmptyDataTemplate>
+                        </asp:ListView>
+                        <asp:SqlDataSource ID="SqlPool" runat="server" ConnectionString="<%$ ConnectionStrings:DbWebSiteConnectionString %>"
+                            SelectCommand="selectDoctorPool" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:QueryStringParameter Name="doctorId" QueryStringField="did" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+
 
                     </ul>
-                </div>--%>
+                </div>
                 <div class="review_form field_form col-md-12">
-                    <h5>ارسال نظرات</h5>
+                    <h5>نظر و تجربه خود را با دیگران در میان بگذارید.</h5>
                     <div class="row mt-3">
                         <div class="form-group col-12">
                             <asp:TextBox ID="TxtDes" runat="server" TextMode="MultiLine"
@@ -446,14 +464,15 @@
                                 class="form-control"></asp:TextBox>
                         </div>
                         <div class="form-group col-md-6">
-                            <asp:TextBox ID="TxtEmail" runat="server"
-                                placeholder="ایمیل یا تلفن خود را وارد کنید *" class="form-control">
+                            <asp:TextBox ID="TxtTel" runat="server"
+                                placeholder="شماره تماس خود را وارد کنید(اختیاری) " class="form-control">
                             </asp:TextBox>
                         </div>
 
                         <div class="form-group col-12">
-                            <asp:Button ID="Button1" runat="server" Text="ارسال نظر"
-                                class="btn btn-fill-out" />
+                            <asp:LinkButton ID="btnPool" runat="server" OnClick="btnPool_Click" CssClass="btn btn-fill-out">ارسال نظر</asp:LinkButton>
+                            <%-- <asp:Button ID="Button1" runat="server" Text="ارسال نظر"
+                                class="btn btn-fill-out" />--%>
                         </div>
                     </div>
                 </div>
@@ -483,7 +502,7 @@
                                             <a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'>
                                                 <img src='<%#Eval("dImg") %>' alt="<%#Eval(" dName") %>">
                                             </a>
-                                            &nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </div>
                                         <div class="product_info">
                                             <h2 class="product_title"><a href='/DoctorDetail.aspx?did=<%#Eval("id") %>'>

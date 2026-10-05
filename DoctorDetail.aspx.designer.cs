@@ -42,6 +42,24 @@ namespace DoctorYab
         protected global::System.Web.UI.WebControls.FormView FormView2;
 
         /// <summary>
+        /// lbPoolSuc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPoolSuc;
+
+        /// <summary>
+        /// lbPoolErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPoolErr;
+
+        /// <summary>
         /// FormView3 control.
         /// </summary>
         /// <remarks>
@@ -186,6 +204,33 @@ namespace DoctorYab
         protected global::System.Web.UI.WebControls.Repeater rptTimes;
 
         /// <summary>
+        /// FormView6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView FormView6;
+
+        /// <summary>
+        /// listPool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView listPool;
+
+        /// <summary>
+        /// SqlPool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlPool;
+
+        /// <summary>
         /// TxtDes control.
         /// </summary>
         /// <remarks>
@@ -204,22 +249,22 @@ namespace DoctorYab
         protected global::System.Web.UI.WebControls.TextBox TxtName;
 
         /// <summary>
-        /// TxtEmail control.
+        /// TxtTel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        protected global::System.Web.UI.WebControls.TextBox TxtTel;
 
         /// <summary>
-        /// Button1 control.
+        /// btnPool control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.LinkButton btnPool;
 
         /// <summary>
         /// Repeater2 control.

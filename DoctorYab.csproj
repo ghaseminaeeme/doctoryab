@@ -2996,6 +2996,8 @@
     <Compile Include="Generate\TblDoctorController.cs" />
     <Compile Include="Generate\TblDoctorImage.cs" />
     <Compile Include="Generate\TblDoctorImageController.cs" />
+    <Compile Include="Generate\TblDoctorPool.cs" />
+    <Compile Include="Generate\TblDoctorPoolController.cs" />
     <Compile Include="Generate\TblMessage.cs" />
     <Compile Include="Generate\TblMessageController.cs" />
     <Compile Include="Generate\TblPage.cs" />

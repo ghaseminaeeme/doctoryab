@@ -27,6 +27,22 @@ namespace DalWebSite{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the admin_selectDoctorPool Procedure
+        /// </summary>
+        public static StoredProcedure AdminSelectDoctorPool(int? doctorId, byte? status, string name)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("admin_selectDoctorPool", DataService.GetInstance("DbWebSiteConnectionString"), "dbo");
+        	
+            sp.Command.AddParameter("@doctorId", doctorId, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@status", status, DbType.Byte, 0, 3);
+        	
+            sp.Command.AddParameter("@name", name, DbType.String, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the deleteCity Procedure
         /// </summary>
         public static StoredProcedure DeleteCity(int? cityId)
@@ -300,6 +316,18 @@ namespace DalWebSite{
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("selectDoctorDetail", DataService.GetInstance("DbWebSiteConnectionString"), "dbo");
         	
             sp.Command.AddParameter("@id", id, DbType.Int32, 0, 10);
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the selectDoctorPool Procedure
+        /// </summary>
+        public static StoredProcedure SelectDoctorPool(int? doctorId)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("selectDoctorPool", DataService.GetInstance("DbWebSiteConnectionString"), "dbo");
+        	
+            sp.Command.AddParameter("@doctorId", doctorId, DbType.Int32, 0, 10);
         	
             return sp;
         }

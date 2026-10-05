@@ -362,6 +362,31 @@ namespace DoctorYab
             Page.Header.Controls.Add(meta);
         }
 
+        protected void btnPool_Click(object sender, EventArgs e)
+        {
+            lbPoolErr.Visible = false;
+            lbPoolSuc.Visible = false;
+            try
+            {
+                TblDoctorPool _TblDoctorPool = new TblDoctorPool();
+                _TblDoctorPool.PName = TxtName.Text;
+                _TblDoctorPool.PDes = TxtDes.Text;
+                _TblDoctorPool.PSaveDate = DateTime.Now;
+                _TblDoctorPool.PStatus = 0;
+                _TblDoctorPool.PTel = TxtTel.Text;
+                _TblDoctorPool.PDoctorFk = Convert.ToInt32(Request.QueryString["did"]);
+                _TblDoctorPool.Save();
+
+                lbPoolErr.Visible = false;
+                lbPoolSuc.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                lbPoolErr.Visible = true;
+                lbPoolSuc.Visible = false;
+            }
+        }
+
         /*
         private void LoadDaysAndFirstTimes()
         {
